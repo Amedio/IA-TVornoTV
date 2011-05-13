@@ -1,0 +1,370 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.owl-ontologies.com/Ontology1304359650.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1304359650.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Pelicula">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProgramaTv"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pelicula</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Documental">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProgramaTv"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Documental</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Pelicula"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Actor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ProgramaTv">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="Nacionalidad"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ProgramaTv</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:ID="Director"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Director">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Director</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Serie">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Serie</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ProgramaTv"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Pelicula"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="CActor">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Pelicula"/>
+          <owl:Class rdf:about="#Serie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Actor"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CActor</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="CDirector">
+    <rdfs:range rdf:resource="#Director"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CDirector</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="Genero">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Genero</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Pelicula"/>
+          <owl:Class rdf:about="#Serie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="AnyoContenido">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AnyoContenido</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="NombreApellido">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NombreApellido</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Director"/>
+          <owl:Class rdf:about="#Actor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Capitulos">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Capitulos</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Serie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ClasEdades">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ClasEdades</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Temporadas">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Temporadas</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Serie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Idioma">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Idioma</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#Nacionalidad">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nacionalidad</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Titulo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Titulo</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Duracion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Duracion</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Duracion en minutos</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="EnEmision">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EnEmision</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Serie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Tematica">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Documental"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tematica</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Color_BN">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Color_BN</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#ProgramaTv"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <Serie rdf:about="tvornotv_Class24">
+    <CActor>
+      <Actor rdf:about="tvornotv_Class25">
+        <NombreApellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Milo Ventimiglia</NombreApellido>
+      </Actor>
+    </CActor>
+    <Capitulos rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >77</Capitulos>
+    <Duracion rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >42</Duracion>
+    <AnyoContenido rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2006</AnyoContenido>
+    <CDirector>
+      <Director rdf:about="tvornotv_Class26">
+        <NombreApellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tim Kring</NombreApellido>
+      </Director>
+    </CDirector>
+    <Nacionalidad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Estados Unidos</Nacionalidad>
+    <Temporadas rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</Temporadas>
+    <Titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heroes</Titulo>
+    <Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ciencia-Ficcion</Genero>
+    <Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Drama</Genero>
+    <ClasEdades rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mayores-13</ClasEdades>
+    <Idioma rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Español</Idioma>
+  </Serie>
+  <Pelicula rdf:about="tvornotv_Class18">
+    <Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accion</Genero>
+    <AnyoContenido rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1962</AnyoContenido>
+    <Titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dr. No</Titulo>
+    <ClasEdades rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mayores-13</ClasEdades>
+    <Idioma rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ingles</Idioma>
+    <Color_BN rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</Color_BN>
+    <CActor>
+      <Actor rdf:about="tvornotv_Class23">
+        <NombreApellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sean Connery</NombreApellido>
+      </Actor>
+    </CActor>
+    <CDirector>
+      <Director rdf:about="tvornotv_Class19">
+        <NombreApellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Terence Young</NombreApellido>
+      </Director>
+    </CDirector>
+    <Nacionalidad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inglaterra</Nacionalidad>
+    <Duracion rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >110</Duracion>
+  </Pelicula>
+  <Documental rdf:about="tvornotv_Class16">
+    <Duracion rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >60</Duracion>
+    <CDirector>
+      <Director rdf:about="tvornotv_Class17">
+        <NombreApellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Felix Rodríguez de la Fuente</NombreApellido>
+      </Director>
+    </CDirector>
+    <AnyoContenido rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1985</AnyoContenido>
+    <Titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >El lince ibérico</Titulo>
+    <Tematica rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Naturaleza</Tematica>
+    <ClasEdades rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >todos-publicos</ClasEdades>
+    <Idioma rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Español</Idioma>
+    <Nacionalidad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >España</Nacionalidad>
+  </Documental>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.5, Build 608)  http://protege.stanford.edu -->
