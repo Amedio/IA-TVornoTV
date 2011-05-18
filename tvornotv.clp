@@ -268,3 +268,34 @@
 	(is-a Persona)
 	(role concrete))
 
+
+;;; ---------------------------------------------------------------------------------------------------------------------
+;;; // ---------------------------------------------- ENGINE --------------------------------------------------------- //
+;;; ---------------------------------------------------------------------------------------------------------------------
+
+
+
+(defmodule MAIN (export ?ALL))
+
+;;; --------------
+;;; ---TEMPLATE---
+;;; --------------
+
+(deftemplate recomendacion "Recomendacion resultante del sistema experto"
+	(slot persona)
+	(multislot programastv)
+	(slot final?)
+)
+
+;;; Modulo de preguntas socio-demograficas
+
+
+
+;;; Modulo de preguntas por gustos televisivos
+
+
+
+;;; Modulo de preguntas por descriptor de contenido
+
+
+
