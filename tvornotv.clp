@@ -287,15 +287,34 @@
 	(slot final?)
 )
 
+
+;;; ------------------
+;;; ----FUNCIONES-----
+;;; ------------------
+
 (deffunction pregunta (?pregunta $?valores-permitidos)
 	(progn$ (?var ?valores-permitidos) (lowcase ?var))
 	(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 	(bind ?respuesta (read))
-	(while (not (member (upcase ?respuesta) ?valores-permitidos)) do
+	(while (not (member (lowcase ?respuesta) ?valores-permitidos)) do
 		(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 		(bind ?respuesta (read))
 	)
 	?respuesta
+)
+
+(deffunction pregunta-multiple (?pregunta $?valores-permitidos)
+  (progn$ (?var ?valores-permitidos) (lowcase ?var))
+  (format t "¿%s? (%s) fin " ?pregunta (implode$ ?valores-permitidos))
+  (bind ?respuesta (read))
+  (bind ?salida (create$ ))
+  (while (not (eq (lowcase ?respuesta) fin)) do
+		(format t "¿%s? (%s) fin " ?pregunta (implode$ ?valores-permitidos))
+		(bind ?respuesta (read))
+		(not (member (lowcase ?respuesta) ?valores-permitidos)) =>
+		  (insert$ ?salida 1 ?respuesta)
+	)
+	(return ?salida)
 )
    
 (deffunction pregunta-numerica (?pregunta ?rangini ?rangfi)
@@ -322,11 +341,34 @@
 	)
 )
 
+;;; ----------------
+;;; -----REGLAS-----
+;;; ----------------
+
+;;; Presentacion
+
+(defrule rotulo-inicial
+	(declare (salience 10))
+	=>
+	(printout t "-----------------------------------------------------" crlf)
+  (printout t "------ Sistema Experto de de programas deOrnoTV -----" crlf)
+  (printout t "-----------------------------------------------------" crlf)
+  (printout t crlf)
+  (focus preguntas-generales)
+)
+
+;;;(defrule su-recomendacion-es
+  ;;;(declare (salience 10))
+  ;;;?rec <- (recomendacion (persona ?per) (final? ok) (habitaciones $?lista-hab))
+  ;;;=>
+	;;;(modify ?rec (final? imprimir))
+	;;;(focus impresion)
+;;;)
+
 ;;; Modulo de preguntas inicial sobre el usuario
 
 (defmodule preguntas-generales "Modulo de preguntas generales"
 	(import MAIN ?ALL)
-	(import inicializacion ?ALL)
 	(export ?ALL)
 )
 
@@ -336,45 +378,43 @@
 )
 
 (defrule preguntar-sexe
-(not(sexe ))=> 
-(bind ?sexe
- (pregunta "De que sexo eres?" hombre mujer)
-) 
+  (not(sexe))=> 
+    (bind ?sexe (pregunta "De que sexo eres" hombre mujer)) 
 )
 
 (defrule preguntar-pais
-(not(pais))=> 
-(bind ?pais
- (pregunta-general "De nacionalidad eres?" )
-) 
+  (not(pais))=> 
+    (bind ?pais
+      (pregunta-general "De nacionalidad eres" )
+    ) 
 )
 
 (defrule preguntar-idoma
-(not(idiomes))=> 
-(bind ?idiomes
- (pegunta "Que idomas habals?" Castellano Catalan Francés Inglés Aleman Italina Japonés )
-) 
+  (not(idiomes))=> 
+    (bind ?idiomes
+      (pregunta-multiple "Que idomas hablas" Castellano Catalan Frances Ingles Aleman Italiano Japones)
+    )
 )
 
 
 (defrule preguntar-actor
 (not(actor-pref))=> 
 (bind ?actor-pref
- (pregunta-general "Qual es tu actor preferido?")
+ (pregunta-general "Qual es tu actor preferido")
 ) 
 )
 
 (defrule preguntar-director
 (not(director-pref))=> 
 (bind ?director-pref
- (pregunta-general "Qual es tu actor preferido?")
+ (pregunta-general "Qual es tu director preferido")
 ) 
 )
 
 (defrule preguntar-detestat
 (not(genere-det))=> 
 (bind ?genere-det
- (preguntar "Que genero detestas?" Western Acción Policiaca Intriga Ciencia-ficción Comedia Romántica Bélica)
+ (pregunta "Que genero detestas" Western Accion Policiaca Intriga Cienciaficcion Comedia Romantica Belica)
 ) 
 )
 

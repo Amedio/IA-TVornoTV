@@ -1,0 +1,3 @@
+(load "tvornotv.clp")
+(reset)
+(run)
