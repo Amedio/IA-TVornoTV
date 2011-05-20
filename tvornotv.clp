@@ -60,7 +60,7 @@
 ([tvornotv_Class26] of  Director
 
 	(NombreApellido "Tim Kring"))
-	
+
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
@@ -287,15 +287,97 @@
 	(slot final?)
 )
 
-;;; Modulo de preguntas socio-demograficas
+(deffunction pregunta (?pregunta $?valores-permitidos)
+	(progn$ (?var ?valores-permitidos) (lowcase ?var))
+	(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+	(bind ?respuesta (read))
+	(while (not (member (upcase ?respuesta) ?valores-permitidos)) do
+		(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+		(bind ?respuesta (read))
+	)
+	?respuesta
+)
+   
+(deffunction pregunta-numerica (?pregunta ?rangini ?rangfi)
+	(format t "¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
+	(bind ?respuesta (read))
+	(while (not(and(> ?respuesta ?rangini)(< ?respuesta ?rangfi))) do
+		(format t "¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
+		(bind ?respuesta (read))
+	)
+	?respuesta
+)
+
+(deffunction pregunta-general (?pregunta)
+	(format t "¿%s? " ?pregunta)
+	(bind ?respuesta (read))
+	?respuesta
+)
+
+(deffunction si-o-no-p (?pregunta)
+	(bind ?respuesta (pregunta ?pregunta SI NO S N))
+	(if (or (eq (lowcase ?respuesta) si) (eq (lowcase ?respuesta) s))
+		then TRUE 
+		else FALSE
+	)
+)
+
+;;; Modulo de preguntas inicial sobre el usuario
+
+(defmodule preguntas-generales "Modulo de preguntas generales"
+	(import MAIN ?ALL)
+	(import inicializacion ?ALL)
+	(export ?ALL)
+)
+
+(defrule preguntar-edad
+	(not(edad))=>
+		(bind ?edad (pregunta-numerica "Qué edad tienes" 0 150))
+)
+
+(defrule preguntar-sexe
+(not(sexe ))=> 
+(bind ?sexe
+ (pregunta "De que sexo eres?" hombre mujer)
+) 
+)
+
+(defrule preguntar-pais
+(not(pais))=> 
+(bind ?pais
+ (pregunta-general "De nacionalidad eres?" )
+) 
+)
+
+(defrule preguntar-idoma
+(not(idiomes))=> 
+(bind ?idiomes
+ (pegunta "Que idomas habals?" Castellano Catalan Francés Inglés Aleman Italina Japonés )
+) 
+)
 
 
+(defrule preguntar-actor
+(not(actor-pref))=> 
+(bind ?actor-pref
+ (pregunta-general "Qual es tu actor preferido?")
+) 
+)
 
-;;; Modulo de preguntas por gustos televisivos
+(defrule preguntar-director
+(not(director-pref))=> 
+(bind ?director-pref
+ (pregunta-general "Qual es tu actor preferido?")
+) 
+)
+
+(defrule preguntar-detestat
+(not(genere-det))=> 
+(bind ?genere-det
+ (preguntar "Que genero detestas?" Western Acción Policiaca Intriga Ciencia-ficción Comedia Romántica Bélica)
+) 
+)
 
 
 
 ;;; Modulo de preguntas por descriptor de contenido
-
-
-
