@@ -1,4 +1,4 @@
-﻿; Fri May 13 18:47:04 CEST 2011
+; Fri May 13 18:47:04 CEST 2011
 ; 
 ;+ (version "3.4.5")
 ;+ (build "Build 608")
@@ -277,7 +277,7 @@
 		[tvornotv_Class10027]
 		[tvornotv_Class10028])
 	(Duracion 118)
-	(Idioma "EspaÃƒÂ±ol")
+	(Idioma "EspaÃ±ol")
 	(Nacionalidad "EEUU")
 	(Titulo "El emperador del Norte"))
 
@@ -301,19 +301,19 @@
 		[tvornotv_Class10022]
 		[tvornotv_Class10023])
 	(Duracion 120)
-	(Idioma "EspaÃƒÂ±ol")
-	(Nacionalidad "EspaÃƒÂ±a")
+	(Idioma "EspaÃ±ol")
+	(Nacionalidad "EspaÃ±a")
 	(Titulo "Airbag"))
 
 ([tvornotv_Class10019] of  Director
 
-	(Nacionalidad "EspaÃƒÂ±a")
+	(Nacionalidad "EspaÃ±a")
 	(NombreApellido "Juanma Bajo"))
 
 ([tvornotv_Class10020] of  Actor
 
-	(Nacionalidad "EspaÃƒÂ±a")
-	(NombreApellido "Karlos ArguiÃƒÂ±ano"))
+	(Nacionalidad "EspaÃ±a")
+	(NombreApellido "Karlos ArguiÃ±ano"))
 
 ([tvornotv_Class10022] of  Productor
 
@@ -321,22 +321,22 @@
 
 ([tvornotv_Class10023] of  Productor
 
-	(Nacionalidad "EspaÃƒÂ±a")
-	(NombreApellido "IÃƒÂ±aki Burrutxaga"))
+	(Nacionalidad "EspaÃ±a")
+	(NombreApellido "IÃ±aki Burrutxaga"))
 
 ([tvornotv_Class10024] of  Actor
 
-	(Nacionalidad "EspaÃƒÂ±a")
+	(Nacionalidad "EspaÃ±a")
 	(NombreApellido "Pilar Bardem"))
 
 ([tvornotv_Class10025] of  Actor
 
-	(Nacionalidad "EspaÃƒÂ±a")
+	(Nacionalidad "EspaÃ±a")
 	(NombreApellido "Santiago Segura"))
 
 ([tvornotv_Class10026] of  Actor
 
-	(Nacionalidad "EspaÃƒÂ±a")
+	(Nacionalidad "EspaÃ±a")
 	(NombreApellido "Carlos Faemino"))
 
 ([tvornotv_Class10027] of  Productor
@@ -383,11 +383,11 @@
 
 ([tvornotv_Class10037] of  Genero
 
-	(Nombre "AcciÃƒÂ³n"))
+	(Nombre "AcciÃ³n"))
 
 ([tvornotv_Class10038] of  Genero
 
-	(Nombre "BÃƒÂ©lica"))
+	(Nombre "BÃ©lica"))
 
 ([tvornotv_Class10039] of  Genero
 
@@ -491,7 +491,7 @@
 	(ClasEdades mayores-13)
 	(Duracion 45)
 	(EnEmision TRUE)
-	(Idioma "EspaÃƒÂ±ol")
+	(Idioma "EspaÃ±ol")
 	(Nacionalidad "EEUU")
 	(Temporadas 6)
 	(Titulo "Mentes Criminales"))
@@ -537,7 +537,7 @@
 	(CProductor [tvornotv_Class10070])
 	(Duracion 45)
 	(EnEmision TRUE)
-	(Idioma "EspaÃƒÂ±ol")
+	(Idioma "EspaÃ±ol")
 	(Nacionalidad "EEUU")
 	(Temporadas 11)
 	(Titulo "CSI: Las Vegas"))
@@ -583,7 +583,7 @@
 	(CProductor [tvornotv_Class10079])
 	(Duracion 60)
 	(EnEmision TRUE)
-	(Idioma "EspaÃƒÂ±ol")
+	(Idioma "EspaÃ±ol")
 	(Nacionalidad "EEUU")
 	(Temporadas 1)
 	(Titulo "Juego de Tronos"))
@@ -685,7 +685,7 @@
 		[tvornotv_Class10030]
 		[tvornotv_Class10028])
 	(Duracion 145)
-	(Idioma "EspaÃƒÂ±ol")
+	(Idioma "EspaÃ±ol")
 	(Nacionalidad "EEUU")
 	(Titulo "Los doce del patibulo"))
 
@@ -715,14 +715,14 @@
 	(CDirector [tvornotv_Class17])
 	(ClasEdades todos-publicos)
 	(Duracion 60)
-	(Idioma "EspaÃƒÂ±ol")
-	(Nacionalidad "EspaÃƒÂ±a")
+	(Idioma "EspaÃ±ol")
+	(Nacionalidad "EspaÃ±a")
 	(Tematica Naturaleza)
-	(Titulo "El lince ibÃƒÂ©rico"))
+	(Titulo "El lince ibÃ©rico"))
 
 ([tvornotv_Class17] of  Director
 
-	(NombreApellido "Felix RodrÃƒÂ­guez de la Fuente"))
+	(NombreApellido "Felix RodrÃ­guez de la Fuente"))
 
 ([tvornotv_Class18] of  Pelicula
 
@@ -758,7 +758,7 @@
 	(CDirector [tvornotv_Class26])
 	(ClasEdades mayores-13)
 	(Duracion 42)
-	(Idioma "EspaÃƒÂ±ol")
+	(Idioma "EspaÃ±ol")
 	(Nacionalidad "Estados Unidos")
 	(Temporadas 4)
 	(Titulo "Heroes"))
@@ -797,27 +797,27 @@
 
 (deffunction pregunta (?pregunta $?valores-permitidos)
 	(progn$ (?var ?valores-permitidos) (lowcase ?var))
-	(format t "Â¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+	(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 	(bind ?respuesta (read))
 	(while (not (member (lowcase ?respuesta) ?valores-permitidos)) do
-		(format t "Â¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+		(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 		(bind ?respuesta (read))
 	)
 	?respuesta
 )
    
 (deffunction pregunta-numerica (?pregunta ?rangini ?rangfi)
-	(format t "Â¿%s? [MAIN::%d, %d] " ?pregunta ?rangini ?rangfi)
+	(format t "¿%s? [MAIN::%d, %d] " ?pregunta ?rangini ?rangfi)
 	(bind ?respuesta (read))
 	(while (not(and(> ?respuesta ?rangini)(< ?respuesta ?rangfi))) do
-		(format t "Â¿%s? [MAIN::%d, %d] " ?pregunta ?rangini ?rangfi)
+		(format t "¿%s? [MAIN::%d, %d] " ?pregunta ?rangini ?rangfi)
 		(bind ?respuesta (read))
 	)
 	?respuesta
 )
 
 (deffunction pregunta-general (?pregunta)
-	(format t "Â¿%s? " ?pregunta)
+	(format t "¿%s? " ?pregunta)
 	(bind ?respuesta (read))
 	?respuesta
 )

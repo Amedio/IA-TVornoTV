@@ -1,7 +1,7 @@
-; Fri May 13 19:59:50 CEST 2011
+; Sat May 21 12:57:02 CEST 2011
 ; 
-;+ (version "3.4.5")
-;+ (build "Build 608")
+;+ (version "3.4.4")
+;+ (build "Build 579")
 
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
@@ -10,6 +10,10 @@
 	(single-slot ClasEdades
 		(type SYMBOL)
 		(allowed-values mayores-7 mayores-13 mayores-18 todos-publicos)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ActorFav
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot CDirector
@@ -28,12 +32,12 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Titulo
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Capitulos
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Titulo
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Duracion
@@ -51,18 +55,39 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Sexo
+		(type SYMBOL)
+		(allowed-values hombre mujer)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot NombreApellido
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot CProductor
+	(multislot Idiomas
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot DirectorFav
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot GeneroDetestado
 		(type INSTANCE)
-;+		(allowed-classes Productor)
+;+		(allowed-classes Genero)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Tematica
 		(type SYMBOL)
 		(allowed-values Naturaleza Ciencia Actualidad Historia Arte Politica Economia)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CProductor
+		(type INSTANCE)
+;+		(allowed-classes Productor)
 		(create-accessor read-write))
 	(multislot CActor
 		(type INSTANCE)
@@ -95,19 +120,19 @@
 
 (defclass ProgramaTv
 	(is-a USER)
-	(role abstract)
+	(role concrete)
 	(single-slot ClasEdades
 		(type SYMBOL)
 		(allowed-values mayores-7 mayores-13 mayores-18 todos-publicos)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot PorcentajeHombres
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot CDirector
 		(type INSTANCE)
 ;+		(allowed-classes Director)
+		(create-accessor read-write))
+	(single-slot PorcentajeHombres
+		(type FLOAT)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot PorcentajeMujeres
 		(type FLOAT)
@@ -118,12 +143,12 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot AnyoContenido
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Idioma
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot AnyoContenido
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Titulo
@@ -172,13 +197,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Actor)
 		(create-accessor read-write))
-	(multislot CProductor
-		(type INSTANCE)
-;+		(allowed-classes Productor)
-		(create-accessor read-write))
 	(single-slot Capitulos
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CProductor
+		(type INSTANCE)
+;+		(allowed-classes Productor)
 		(create-accessor read-write))
 	(single-slot EnEmision
 		(type SYMBOL)
@@ -197,7 +222,7 @@
 
 (defclass Persona
 	(is-a USER)
-	(role abstract)
+	(role concrete)
 	(single-slot NombreApellido
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -228,4 +253,36 @@
 	(single-slot Nombre
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Usuario
+	(is-a USER)
+	(role concrete)
+	(single-slot DirectorFav
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ActorFav
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot GeneroDetestado
+		(type INSTANCE)
+;+		(allowed-classes Genero)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Idiomas
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot Sexo
+		(type SYMBOL)
+		(allowed-values hombre mujer)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Nacionalidad
+		(type STRING)
 		(create-accessor read-write)))
