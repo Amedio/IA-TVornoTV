@@ -1,7 +1,7 @@
-; Sat May 21 12:57:02 CEST 2011
+; Wed May 25 20:19:58 CEST 2011
 ; 
-;+ (version "3.4.4")
-;+ (build "Build 579")
+;+ (version "3.4.5")
+;+ (build "Build 608")
 
 ([tvornotv_Class10016] of  Pelicula
 
@@ -48,13 +48,13 @@
 
 ([tvornotv_Class10019] of  Director
 
-	(Nacionalidad "España")
+	(Nacionalidad "Espana")
 	(NombreApellido "Juanma Bajo"))
 
 ([tvornotv_Class10020] of  Actor
 
-	(Nacionalidad "España")
-	(NombreApellido "Karlos Arguiñano"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Karlos Arguinano"))
 
 ([tvornotv_Class10022] of  Productor
 
@@ -62,22 +62,22 @@
 
 ([tvornotv_Class10023] of  Productor
 
-	(Nacionalidad "España")
-	(NombreApellido "Iñaki Burrutxaga"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Inaki Burrutxaga"))
 
 ([tvornotv_Class10024] of  Actor
 
-	(Nacionalidad "España")
+	(Nacionalidad "Espana")
 	(NombreApellido "Pilar Bardem"))
 
 ([tvornotv_Class10025] of  Actor
 
-	(Nacionalidad "España")
+	(Nacionalidad "Espana")
 	(NombreApellido "Santiago Segura"))
 
 ([tvornotv_Class10026] of  Actor
 
-	(Nacionalidad "España")
+	(Nacionalidad "Espana")
 	(NombreApellido "Carlos Faemino"))
 
 ([tvornotv_Class10027] of  Productor
@@ -124,11 +124,11 @@
 
 ([tvornotv_Class10037] of  Genero
 
-	(Nombre "Acción"))
+	(Nombre "Accion"))
 
 ([tvornotv_Class10038] of  Genero
 
-	(Nombre "Bélica"))
+	(Nombre "Belica"))
 
 ([tvornotv_Class10039] of  Genero
 
@@ -204,7 +204,7 @@
 
 ([tvornotv_Class10053] of  Genero
 
-	(Nombre "Ciencia-Ficcion"))
+	(Nombre "CienciaFiccion"))
 
 ([tvornotv_Class10054] of  Actor
 
@@ -463,7 +463,7 @@
 
 ([tvornotv_Class17] of  Director
 
-	(NombreApellido "Felix Rodríguez de la Fuente"))
+	(NombreApellido "Felix Rodriguez de la Fuente"))
 
 ([tvornotv_Class18] of  Pelicula
 

@@ -1,7 +1,7 @@
-; Sat May 21 12:57:02 CEST 2011
+; Wed May 25 20:19:58 CEST 2011
 ; 
-;+ (version "3.4.4")
-;+ (build "Build 579")
+;+ (version "3.4.5")
+;+ (build "Build 608")
 
 ([ANNOTATED_INSTANCE_WIDGET] of  Widget
 
@@ -20,16 +20,16 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[tvornotv_ProjectKB_Class10199]
-		[tvornotv_ProjectKB_Class10200]
-		[tvornotv_ProjectKB_Class10201]
-		[tvornotv_ProjectKB_Class10202]
-		[tvornotv_ProjectKB_Class10203]
-		[tvornotv_ProjectKB_Class10204]
-		[tvornotv_ProjectKB_Class10205]
-		[tvornotv_ProjectKB_Class10206]
-		[tvornotv_ProjectKB_Class10207]
-		[tvornotv_ProjectKB_Class10208]))
+		[tvornotv_ProjectKB_Class10095]
+		[tvornotv_ProjectKB_Class10096]
+		[tvornotv_ProjectKB_Class10097]
+		[tvornotv_ProjectKB_Class10098]
+		[tvornotv_ProjectKB_Class10099]
+		[tvornotv_ProjectKB_Class10100]
+		[tvornotv_ProjectKB_Class10101]
+		[tvornotv_ProjectKB_Class10102]
+		[tvornotv_ProjectKB_Class10103]
+		[tvornotv_ProjectKB_Class10104]))
 
 ([CLSES_TAB] of  Widget
 
@@ -73,7 +73,7 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_145931_Class3] of  Map
+([KB_007535_Class3] of  Map
 )
 
 ([KB_730124_Class0] of  String
@@ -84,9 +84,9 @@
 ([KB_730124_Class1] of  Map
 
 	(entries
-		[tvornotv_ProjectKB_Class10209]
-		[tvornotv_ProjectKB_Class10210]
-		[tvornotv_ProjectKB_Class10211]))
+		[tvornotv_ProjectKB_Class10105]
+		[tvornotv_ProjectKB_Class10106]
+		[tvornotv_ProjectKB_Class10107]))
 
 ([KB_730124_Class100] of  Property_List
 )
@@ -264,8 +264,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
@@ -659,71 +659,71 @@
 ([tvornotv_ProjectKB_Class10] of  Property_List
 )
 
-([tvornotv_ProjectKB_Class10199] of  String
+([tvornotv_ProjectKB_Class10095] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([tvornotv_ProjectKB_Class10200] of  String
+([tvornotv_ProjectKB_Class10096] of  String
 
 	(name "Director")
 	(string_value "NombreApellido"))
 
-([tvornotv_ProjectKB_Class10201] of  String
+([tvornotv_ProjectKB_Class10097] of  String
 
 	(name "Pelicula")
 	(string_value "Titulo"))
 
-([tvornotv_ProjectKB_Class10202] of  String
-
-	(name "Productor")
-	(string_value "NombreApellido"))
-
-([tvornotv_ProjectKB_Class10203] of  String
+([tvornotv_ProjectKB_Class10098] of  String
 
 	(name "Genero")
 	(string_value "Nombre"))
 
-([tvornotv_ProjectKB_Class10204] of  String
+([tvornotv_ProjectKB_Class10099] of  String
 
-	(name "Serie")
-	(string_value "Titulo"))
+	(name "Productor")
+	(string_value "NombreApellido"))
 
-([tvornotv_ProjectKB_Class10205] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([tvornotv_ProjectKB_Class10206] of  String
+([tvornotv_ProjectKB_Class10100] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([tvornotv_ProjectKB_Class10207] of  String
+([tvornotv_ProjectKB_Class10101] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([tvornotv_ProjectKB_Class10102] of  String
+
+	(name "Serie")
+	(string_value "Titulo"))
+
+([tvornotv_ProjectKB_Class10103] of  String
 
 	(name "Documental")
 	(string_value "Titulo"))
 
-([tvornotv_ProjectKB_Class10208] of  String
+([tvornotv_ProjectKB_Class10104] of  String
 
 	(name "Actor")
 	(string_value "NombreApellido"))
 
-([tvornotv_ProjectKB_Class10209] of  Map_Entry
+([tvornotv_ProjectKB_Class10105] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([tvornotv_ProjectKB_Class10210] of  Map_Entry
+([tvornotv_ProjectKB_Class10106] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([tvornotv_ProjectKB_Class10211] of  Map_Entry
+([tvornotv_ProjectKB_Class10107] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
