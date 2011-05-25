@@ -1,4 +1,4 @@
-; Wed May 25 20:19:58 CEST 2011
+; Wed May 25 21:56:30 CEST 2011
 ; 
 ;+ (version "3.4.5")
 ;+ (build "Build 608")
@@ -18,7 +18,7 @@
 		[tvornotv_Class10027]
 		[tvornotv_Class10028])
 	(Duracion 118)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "EEUU")
 	(Titulo "El emperador del Norte"))
 
@@ -42,7 +42,7 @@
 		[tvornotv_Class10022]
 		[tvornotv_Class10023])
 	(Duracion 120)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "España")
 	(Titulo "Airbag"))
 
@@ -106,7 +106,7 @@
 		[tvornotv_Class10044]
 		[tvornotv_Class10046])
 	(Duracion 98)
-	(Idioma "Ingles")
+	(Idioma "ingles")
 	(Nacionalidad "EEUU")
 	(Titulo "The Princess Bride"))
 
@@ -193,7 +193,7 @@
 	(ClasEdades todos-publicos)
 	(Duracion 45)
 	(EnEmision TRUE)
-	(Idioma "Ingles")
+	(Idioma "ingles")
 	(Nacionalidad "Inglaterra")
 	(Temporadas 6)
 	(Titulo "Dr. Who"))
@@ -232,7 +232,7 @@
 	(ClasEdades mayores-13)
 	(Duracion 45)
 	(EnEmision TRUE)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "EEUU")
 	(Temporadas 6)
 	(Titulo "Mentes Criminales"))
@@ -278,7 +278,7 @@
 	(CProductor [tvornotv_Class10070])
 	(Duracion 45)
 	(EnEmision TRUE)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "EEUU")
 	(Temporadas 11)
 	(Titulo "CSI: Las Vegas"))
@@ -324,7 +324,7 @@
 	(CProductor [tvornotv_Class10079])
 	(Duracion 60)
 	(EnEmision TRUE)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "EEUU")
 	(Temporadas 1)
 	(Titulo "Juego de Tronos"))
@@ -380,7 +380,7 @@
 		[tvornotv_Class10081]
 		[tvornotv_Class10082])
 	(Duracion 60)
-	(Idioma "Ingles")
+	(Idioma "ingles")
 	(Nacionalidad
 		"EEUU"
 		"Reino Unido")
@@ -426,7 +426,7 @@
 		[tvornotv_Class10030]
 		[tvornotv_Class10028])
 	(Duracion 145)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "EEUU")
 	(Titulo "Los doce del patibulo"))
 
@@ -456,7 +456,7 @@
 	(CDirector [tvornotv_Class17])
 	(ClasEdades todos-publicos)
 	(Duracion 60)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "España")
 	(Tematica Naturaleza)
 	(Titulo "El lince ibérico"))
@@ -479,7 +479,7 @@
 		[tvornotv_Class10041]
 		[tvornotv_Class10042])
 	(Duracion 110)
-	(Idioma "Ingles")
+	(Idioma "ingles")
 	(Nacionalidad "Inglaterra")
 	(Titulo "Dr. No"))
 
@@ -499,7 +499,7 @@
 	(CDirector [tvornotv_Class26])
 	(ClasEdades mayores-13)
 	(Duracion 42)
-	(Idioma "Español")
+	(Idioma "castellano")
 	(Nacionalidad "Estados Unidos")
 	(Temporadas 4)
 	(Titulo "Heroes"))

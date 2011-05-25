@@ -161,12 +161,13 @@
 (defrule carrega-peliculas
 	?rec <- (recomendacion (persona ?pers))
 	?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
-	(test (not (eq (member$ ?id (send ?pers get-Idiomas)) FALSE)))
+	;(test (member$ (str-cat ?id) (send ?pers get-Idiomas)))
 	;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE)) 
 	=>
-	(bind ?aux2 (create$ ?var))
-	(modify ?rec (programastv ?aux2))
-	(assert (Recomendacion programastv ok))
+	(printout t (send ?var get-Idioma))
+	;(bind ?aux2 (create$ ?var))
+	;(modify ?rec (programastv ?aux2))
+	;(assert (Recomendacion programastv ok))
 )
 
 (defrule escriure

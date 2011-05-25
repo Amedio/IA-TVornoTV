@@ -264,511 +264,511 @@
 (definstances tvornotv
   ([tvornotv_Class10016] of  Pelicula
 
-	  (AnyoContenido 1973)
-	  (CActor
-		  [tvornotv_Class13]
-		  [tvornotv_Class10017])
-	  (CDirector [tvornotv_Class12])
-	  (CGenero
-		  [tvornotv_Class10039]
-		  [tvornotv_Class10037])
-	  (ClasEdades todos-publicos)
-	  (CProductor
-		  [tvornotv_Class10027]
-		  [tvornotv_Class10028])
-	  (Duracion 118)
-	  (Idioma "Español")
-	  (Nacionalidad "EEUU")
-	  (Titulo "El emperador del Norte"))
+	(AnyoContenido 1973)
+	(CActor
+		[tvornotv_Class13]
+		[tvornotv_Class10017])
+	(CDirector [tvornotv_Class12])
+	(CGenero
+		[tvornotv_Class10039]
+		[tvornotv_Class10037])
+	(ClasEdades todos-publicos)
+	(CProductor
+		[tvornotv_Class10027]
+		[tvornotv_Class10028])
+	(Duracion 118)
+	(Idioma "castellano")
+	(Nacionalidad "EEUU")
+	(Titulo "El emperador del Norte"))
 
-  ([tvornotv_Class10017] of  Actor
+([tvornotv_Class10017] of  Actor
 
-	  (Nacionalidad "EEUU")
-	  (NombreApellido "Ernest Borgnine"))
+	(Nacionalidad "EEUU")
+	(NombreApellido "Ernest Borgnine"))
 
-  ([tvornotv_Class10018] of  Pelicula
+([tvornotv_Class10018] of  Pelicula
 
-	  (AnyoContenido 1997)
-	  (CActor
-		  [tvornotv_Class10020]
-		  [tvornotv_Class10024]
-		  [tvornotv_Class10025]
-		  [tvornotv_Class10026])
-	  (CDirector [tvornotv_Class10019])
-	  (CGenero [tvornotv_Class10043])
-	  (ClasEdades mayores-18)
-	  (CProductor
-		  [tvornotv_Class10022]
-		  [tvornotv_Class10023])
-	  (Duracion 120)
-	  (Idioma "Español")
-	  (Nacionalidad "España")
-	  (Titulo "Airbag"))
+	(AnyoContenido 1997)
+	(CActor
+		[tvornotv_Class10020]
+		[tvornotv_Class10024]
+		[tvornotv_Class10025]
+		[tvornotv_Class10026])
+	(CDirector [tvornotv_Class10019])
+	(CGenero [tvornotv_Class10043])
+	(ClasEdades mayores-18)
+	(CProductor
+		[tvornotv_Class10022]
+		[tvornotv_Class10023])
+	(Duracion 120)
+	(Idioma "castellano")
+	(Nacionalidad "España")
+	(Titulo "Airbag"))
 
-  ([tvornotv_Class10019] of  Director
+([tvornotv_Class10019] of  Director
 
-	  (Nacionalidad "Espana")
-	  (NombreApellido "Juanma Bajo"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Juanma Bajo"))
 
-  ([tvornotv_Class10020] of  Actor
+([tvornotv_Class10020] of  Actor
 
-	  (Nacionalidad "Espana")
-	  (NombreApellido "Karlos Arguinano"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Karlos Arguinano"))
 
-  ([tvornotv_Class10022] of  Productor
+([tvornotv_Class10022] of  Productor
 
-	  (NombreApellido "Adrian Lipp"))
+	(NombreApellido "Adrian Lipp"))
 
-  ([tvornotv_Class10023] of  Productor
+([tvornotv_Class10023] of  Productor
 
-	  (Nacionalidad "Espana")
-	  (NombreApellido "Inaki Burrutxaga"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Inaki Burrutxaga"))
 
-  ([tvornotv_Class10024] of  Actor
+([tvornotv_Class10024] of  Actor
 
-	  (Nacionalidad "Espana")
-	  (NombreApellido "Pilar Bardem"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Pilar Bardem"))
 
-  ([tvornotv_Class10025] of  Actor
+([tvornotv_Class10025] of  Actor
 
-	  (Nacionalidad "Espana")
-	  (NombreApellido "Santiago Segura"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Santiago Segura"))
 
-  ([tvornotv_Class10026] of  Actor
+([tvornotv_Class10026] of  Actor
 
-	  (Nacionalidad "Espana")
-	  (NombreApellido "Carlos Faemino"))
+	(Nacionalidad "Espana")
+	(NombreApellido "Carlos Faemino"))
 
-  ([tvornotv_Class10027] of  Productor
+([tvornotv_Class10027] of  Productor
 
-	  (NombreApellido "Stanley Hough"))
+	(NombreApellido "Stanley Hough"))
 
-  ([tvornotv_Class10028] of  Productor
+([tvornotv_Class10028] of  Productor
 
-	  (NombreApellido "Kenneth Hyman"))
+	(NombreApellido "Kenneth Hyman"))
 
-  ([tvornotv_Class10029] of  Pelicula
+([tvornotv_Class10029] of  Pelicula
 
-	  (AnyoContenido 1987)
-	  (CActor
-		  [tvornotv_Class10047]
-		  [tvornotv_Class10048]
-		  [tvornotv_Class10049]
-		  [tvornotv_Class10050])
-	  (CDirector [tvornotv_Class10045])
-	  (CGenero
-		  [tvornotv_Class10034]
-		  [tvornotv_Class10036]
-		  [tvornotv_Class10043])
-	  (ClasEdades todos-publicos)
-	  (CProductor
-		  [tvornotv_Class10044]
-		  [tvornotv_Class10046])
-	  (Duracion 98)
-	  (Idioma "Ingles")
-	  (Nacionalidad "EEUU")
-	  (Titulo "The Princess Bride"))
+	(AnyoContenido 1987)
+	(CActor
+		[tvornotv_Class10047]
+		[tvornotv_Class10048]
+		[tvornotv_Class10049]
+		[tvornotv_Class10050])
+	(CDirector [tvornotv_Class10045])
+	(CGenero
+		[tvornotv_Class10034]
+		[tvornotv_Class10036]
+		[tvornotv_Class10043])
+	(ClasEdades todos-publicos)
+	(CProductor
+		[tvornotv_Class10044]
+		[tvornotv_Class10046])
+	(Duracion 98)
+	(Idioma "ingles")
+	(Nacionalidad "EEUU")
+	(Titulo "The Princess Bride"))
 
-  ([tvornotv_Class10030] of  Productor
+([tvornotv_Class10030] of  Productor
 
-	  (NombreApellido "Raymond Anzarut"))
+	(NombreApellido "Raymond Anzarut"))
 
-  ([tvornotv_Class10034] of  Genero
+([tvornotv_Class10034] of  Genero
 
-	  (Nombre "Aventuras"))
+	(Nombre "Aventuras"))
 
-  ([tvornotv_Class10036] of  Genero
+([tvornotv_Class10036] of  Genero
 
-	  (Nombre "Fantasia"))
+	(Nombre "Fantasia"))
 
-  ([tvornotv_Class10037] of  Genero
+([tvornotv_Class10037] of  Genero
 
-	  (Nombre "Accion"))
+	(Nombre "Accion"))
 
-  ([tvornotv_Class10038] of  Genero
+([tvornotv_Class10038] of  Genero
 
-	  (Nombre "Belica"))
+	(Nombre "Belica"))
 
-  ([tvornotv_Class10039] of  Genero
+([tvornotv_Class10039] of  Genero
 
-	  (Nombre "Drama"))
+	(Nombre "Drama"))
 
-  ([tvornotv_Class10040] of  Genero
+([tvornotv_Class10040] of  Genero
 
-	  (Nombre "Espionaje"))
+	(Nombre "Espionaje"))
 
-  ([tvornotv_Class10041] of  Productor
+([tvornotv_Class10041] of  Productor
 
-	  (Nacionalidad "EEUU")
-	  (NombreApellido "Albert Romolo Broccoli"))
+	(Nacionalidad "EEUU")
+	(NombreApellido "Albert Romolo Broccoli"))
 
-  ([tvornotv_Class10042] of  Productor
+([tvornotv_Class10042] of  Productor
 
-	  (Nacionalidad "Canada")
-	  (NombreApellido "Harry Saltzman"))
+	(Nacionalidad "Canada")
+	(NombreApellido "Harry Saltzman"))
 
-  ([tvornotv_Class10043] of  Genero
+([tvornotv_Class10043] of  Genero
 
-	  (Nombre "Comedia"))
+	(Nombre "Comedia"))
 
-  ([tvornotv_Class10044] of  Productor
+([tvornotv_Class10044] of  Productor
 
-	  (NombreApellido "Andrew Scheiman"))
+	(NombreApellido "Andrew Scheiman"))
 
-  ([tvornotv_Class10045] of  Director
+([tvornotv_Class10045] of  Director
 
-	  (NombreApellido "Rob Reiner"))
+	(NombreApellido "Rob Reiner"))
 
-  ([tvornotv_Class10046] of  Productor
+([tvornotv_Class10046] of  Productor
 
-	  (NombreApellido "Rob Reiner"))
+	(NombreApellido "Rob Reiner"))
 
-  ([tvornotv_Class10047] of  Actor
+([tvornotv_Class10047] of  Actor
 
-	  (NombreApellido "Robin Wright"))
+	(NombreApellido "Robin Wright"))
 
-  ([tvornotv_Class10048] of  Actor
+([tvornotv_Class10048] of  Actor
 
-	  (NombreApellido "Cary Elwes"))
+	(NombreApellido "Cary Elwes"))
 
-  ([tvornotv_Class10049] of  Actor
+([tvornotv_Class10049] of  Actor
 
-	  (NombreApellido "Mandy Patinkin"))
+	(NombreApellido "Mandy Patinkin"))
 
-  ([tvornotv_Class10050] of  Actor
+([tvornotv_Class10050] of  Actor
 
-	  (NombreApellido "Chris Sarandon"))
+	(NombreApellido "Chris Sarandon"))
 
-  ([tvornotv_Class10051] of  Serie
+([tvornotv_Class10051] of  Serie
 
-	  (AnyoContenido 1963)
-	  (CActor
-		  [tvornotv_Class10054]
-		  [tvornotv_Class10055])
-	  (Capitulos 776)
-	  (CGenero
-		  [tvornotv_Class10039]
-		  [tvornotv_Class10053])
-	  (ClasEdades todos-publicos)
-	  (Duracion 45)
-	  (EnEmision TRUE)
-	  (Idioma "Ingles")
-	  (Nacionalidad "Inglaterra")
-	  (Temporadas 6)
-	  (Titulo "Dr. Who"))
+	(AnyoContenido 1963)
+	(CActor
+		[tvornotv_Class10054]
+		[tvornotv_Class10055])
+	(Capitulos 776)
+	(CGenero
+		[tvornotv_Class10039]
+		[tvornotv_Class10053])
+	(ClasEdades todos-publicos)
+	(Duracion 45)
+	(EnEmision TRUE)
+	(Idioma "ingles")
+	(Nacionalidad "Inglaterra")
+	(Temporadas 6)
+	(Titulo "Dr. Who"))
 
-  ([tvornotv_Class10052] of  Director
+([tvornotv_Class10052] of  Director
 
-	  (NombreApellido "Tom Hanks"))
+	(NombreApellido "Tom Hanks"))
 
-  ([tvornotv_Class10053] of  Genero
+([tvornotv_Class10053] of  Genero
 
-	  (Nombre "CienciaFiccion"))
+	(Nombre "CienciaFiccion"))
 
-  ([tvornotv_Class10054] of  Actor
+([tvornotv_Class10054] of  Actor
 
-	  (NombreApellido "Matt Smith"))
+	(NombreApellido "Matt Smith"))
 
-  ([tvornotv_Class10055] of  Actor
+([tvornotv_Class10055] of  Actor
 
-	  (NombreApellido "David Tennant"))
+	(NombreApellido "David Tennant"))
 
-  ([tvornotv_Class10056] of  Serie
+([tvornotv_Class10056] of  Serie
 
-	  (AnyoContenido 2005)
-	  (CActor
-		  [tvornotv_Class10049]
-		  [tvornotv_Class10061]
-		  [tvornotv_Class10062]
-		  [tvornotv_Class10063])
-	  (Capitulos 138)
-	  (CDirector [tvornotv_Class10057])
-	  (CGenero
-		  [tvornotv_Class10058]
-		  [tvornotv_Class10039]
-		  [tvornotv_Class10059]
-		  [tvornotv_Class10060])
-	  (ClasEdades mayores-13)
-	  (Duracion 45)
-	  (EnEmision TRUE)
-	  (Idioma "Español")
-	  (Nacionalidad "EEUU")
-	  (Temporadas 6)
-	  (Titulo "Mentes Criminales"))
+	(AnyoContenido 2005)
+	(CActor
+		[tvornotv_Class10049]
+		[tvornotv_Class10061]
+		[tvornotv_Class10062]
+		[tvornotv_Class10063])
+	(Capitulos 138)
+	(CDirector [tvornotv_Class10057])
+	(CGenero
+		[tvornotv_Class10058]
+		[tvornotv_Class10039]
+		[tvornotv_Class10059]
+		[tvornotv_Class10060])
+	(ClasEdades mayores-13)
+	(Duracion 45)
+	(EnEmision TRUE)
+	(Idioma "castellano")
+	(Nacionalidad "EEUU")
+	(Temporadas 6)
+	(Titulo "Mentes Criminales"))
 
-  ([tvornotv_Class10057] of  Director
+([tvornotv_Class10057] of  Director
 
-	  (NombreApellido "Jeff Davis"))
+	(NombreApellido "Jeff Davis"))
 
-  ([tvornotv_Class10058] of  Genero
+([tvornotv_Class10058] of  Genero
 
-	  (Nombre "Policiaco"))
+	(Nombre "Policiaco"))
 
-  ([tvornotv_Class10059] of  Genero
+([tvornotv_Class10059] of  Genero
 
-	  (Nombre "Criminologia"))
+	(Nombre "Criminologia"))
 
-  ([tvornotv_Class10060] of  Genero
+([tvornotv_Class10060] of  Genero
 
-	  (Nombre "Forenses"))
+	(Nombre "Forenses"))
 
-  ([tvornotv_Class10061] of  Actor
+([tvornotv_Class10061] of  Actor
 
-	  (NombreApellido "Thomas Gibson"))
+	(NombreApellido "Thomas Gibson"))
 
-  ([tvornotv_Class10062] of  Actor
+([tvornotv_Class10062] of  Actor
 
-	  (NombreApellido "Shemar Moore"))
+	(NombreApellido "Shemar Moore"))
 
-  ([tvornotv_Class10063] of  Actor
+([tvornotv_Class10063] of  Actor
 
-	  (NombreApellido "Matthew Grey Gubler"))
+	(NombreApellido "Matthew Grey Gubler"))
 
-  ([tvornotv_Class10064] of  Serie
+([tvornotv_Class10064] of  Serie
 
-	  (AnyoContenido 2000)
-	  (CActor
-		  [tvornotv_Class10065]
-		  [tvornotv_Class10066]
-		  [tvornotv_Class10067]
-		  [tvornotv_Class10068])
-	  (CDirector [tvornotv_Class10069])
-	  (ClasEdades mayores-13)
-	  (CProductor [tvornotv_Class10070])
-	  (Duracion 45)
-	  (EnEmision TRUE)
-	  (Idioma "Español")
-	  (Nacionalidad "EEUU")
-	  (Temporadas 11)
-	  (Titulo "CSI: Las Vegas"))
+	(AnyoContenido 2000)
+	(CActor
+		[tvornotv_Class10065]
+		[tvornotv_Class10066]
+		[tvornotv_Class10067]
+		[tvornotv_Class10068])
+	(CDirector [tvornotv_Class10069])
+	(ClasEdades mayores-13)
+	(CProductor [tvornotv_Class10070])
+	(Duracion 45)
+	(EnEmision TRUE)
+	(Idioma "castellano")
+	(Nacionalidad "EEUU")
+	(Temporadas 11)
+	(Titulo "CSI: Las Vegas"))
 
-  ([tvornotv_Class10065] of  Actor
+([tvornotv_Class10065] of  Actor
 
-	  (NombreApellido "Lawrence Fishburne"))
+	(NombreApellido "Lawrence Fishburne"))
 
-  ([tvornotv_Class10066] of  Actor
+([tvornotv_Class10066] of  Actor
 
-	  (NombreApellido "William Petersen"))
+	(NombreApellido "William Petersen"))
 
-  ([tvornotv_Class10067] of  Actor
+([tvornotv_Class10067] of  Actor
 
-	  (NombreApellido "Marg Heigenberger"))
+	(NombreApellido "Marg Heigenberger"))
 
-  ([tvornotv_Class10068] of  Actor
+([tvornotv_Class10068] of  Actor
 
-	  (NombreApellido "George Eads"))
+	(NombreApellido "George Eads"))
 
-  ([tvornotv_Class10069] of  Director
+([tvornotv_Class10069] of  Director
 
-	  (NombreApellido "Anthony E. Zuiker"))
+	(NombreApellido "Anthony E. Zuiker"))
 
-  ([tvornotv_Class10070] of  Productor
+([tvornotv_Class10070] of  Productor
 
-	  (NombreApellido "Jerry Bruckheimer"))
+	(NombreApellido "Jerry Bruckheimer"))
 
-  ([tvornotv_Class10071] of  Serie
+([tvornotv_Class10071] of  Serie
 
-	  (AnyoContenido 2011)
-	  (CActor
-		  [tvornotv_Class10076]
-		  [tvornotv_Class10077]
-		  [tvornotv_Class10078])
-	  (Capitulos 3)
-	  (CDirector
-		  [tvornotv_Class10073]
-		  [tvornotv_Class10074]
-		  [tvornotv_Class10075])
-	  (CGenero [tvornotv_Class10072])
-	  (ClasEdades mayores-18)
-	  (CProductor [tvornotv_Class10079])
-	  (Duracion 60)
-	  (EnEmision TRUE)
-	  (Idioma "Español")
-	  (Nacionalidad "EEUU")
-	  (Temporadas 1)
-	  (Titulo "Juego de Tronos"))
+	(AnyoContenido 2011)
+	(CActor
+		[tvornotv_Class10076]
+		[tvornotv_Class10077]
+		[tvornotv_Class10078])
+	(Capitulos 3)
+	(CDirector
+		[tvornotv_Class10073]
+		[tvornotv_Class10074]
+		[tvornotv_Class10075])
+	(CGenero [tvornotv_Class10072])
+	(ClasEdades mayores-18)
+	(CProductor [tvornotv_Class10079])
+	(Duracion 60)
+	(EnEmision TRUE)
+	(Idioma "castellano")
+	(Nacionalidad "EEUU")
+	(Temporadas 1)
+	(Titulo "Juego de Tronos"))
 
-  ([tvornotv_Class10072] of  Genero
+([tvornotv_Class10072] of  Genero
 
-	  (Nombre "Fantasia medieval"))
+	(Nombre "Fantasia medieval"))
 
-  ([tvornotv_Class10073] of  Director
+([tvornotv_Class10073] of  Director
 
-	  (NombreApellido "David Benioff"))
+	(NombreApellido "David Benioff"))
 
-  ([tvornotv_Class10074] of  Director
+([tvornotv_Class10074] of  Director
 
-	  (NombreApellido "D. B. Weiss"))
+	(NombreApellido "D. B. Weiss"))
 
-  ([tvornotv_Class10075] of  Director
+([tvornotv_Class10075] of  Director
 
-	  (NombreApellido "George R. R. Martin"))
+	(NombreApellido "George R. R. Martin"))
 
-  ([tvornotv_Class10076] of  Actor
+([tvornotv_Class10076] of  Actor
 
-	  (NombreApellido "Mark Addy"))
+	(NombreApellido "Mark Addy"))
 
-  ([tvornotv_Class10077] of  Actor
+([tvornotv_Class10077] of  Actor
 
-	  (NombreApellido "Afie Alien"))
+	(NombreApellido "Afie Alien"))
 
-  ([tvornotv_Class10078] of  Actor
+([tvornotv_Class10078] of  Actor
 
-	  (NombreApellido "Sean Bean"))
+	(NombreApellido "Sean Bean"))
 
-  ([tvornotv_Class10079] of  Productor
+([tvornotv_Class10079] of  Productor
 
-	  (NombreApellido "David Benioff"))
+	(NombreApellido "David Benioff"))
 
-  ([tvornotv_Class10080] of  Serie
+([tvornotv_Class10080] of  Serie
 
-	  (AnyoContenido 2001)
-	  (CActor
-		  [tvornotv_Class10084]
-		  [tvornotv_Class10085]
-		  [tvornotv_Class10086])
-	  (Capitulos 11)
-	  (CDirector
-		  [tvornotv_Class10052]
-		  [tvornotv_Class10083])
-	  (CGenero
-		  [tvornotv_Class10037]
-		  [tvornotv_Class10038])
-	  (ClasEdades mayores-18)
-	  (CProductor
-		  [tvornotv_Class10081]
-		  [tvornotv_Class10082])
-	  (Duracion 60)
-	  (Idioma "Ingles")
-	  (Nacionalidad
-		  "EEUU"
-		  "Reino Unido")
-	  (Temporadas 1)
-	  (Titulo "Band of Brothers"))
+	(AnyoContenido 2001)
+	(CActor
+		[tvornotv_Class10084]
+		[tvornotv_Class10085]
+		[tvornotv_Class10086])
+	(Capitulos 11)
+	(CDirector
+		[tvornotv_Class10052]
+		[tvornotv_Class10083])
+	(CGenero
+		[tvornotv_Class10037]
+		[tvornotv_Class10038])
+	(ClasEdades mayores-18)
+	(CProductor
+		[tvornotv_Class10081]
+		[tvornotv_Class10082])
+	(Duracion 60)
+	(Idioma "ingles")
+	(Nacionalidad
+		"EEUU"
+		"Reino Unido")
+	(Temporadas 1)
+	(Titulo "Band of Brothers"))
 
-  ([tvornotv_Class10081] of  Productor
+([tvornotv_Class10081] of  Productor
 
-	  (NombreApellido "Steven Spielberg"))
+	(NombreApellido "Steven Spielberg"))
 
-  ([tvornotv_Class10082] of  Productor
+([tvornotv_Class10082] of  Productor
 
-	  (NombreApellido "Tom Hanks"))
+	(NombreApellido "Tom Hanks"))
 
-  ([tvornotv_Class10083] of  Director
+([tvornotv_Class10083] of  Director
 
-	  (NombreApellido "Mark Cowen"))
+	(NombreApellido "Mark Cowen"))
 
-  ([tvornotv_Class10084] of  Actor
+([tvornotv_Class10084] of  Actor
 
-	  (NombreApellido "Ron Livingston"))
+	(NombreApellido "Ron Livingston"))
 
-  ([tvornotv_Class10085] of  Actor
+([tvornotv_Class10085] of  Actor
 
-	  (NombreApellido "James McAvoy"))
+	(NombreApellido "James McAvoy"))
 
-  ([tvornotv_Class10086] of  Actor
+([tvornotv_Class10086] of  Actor
 
-	  (NombreApellido "Stephen Graham"))
+	(NombreApellido "Stephen Graham"))
 
-  ([tvornotv_Class11] of  Pelicula
+([tvornotv_Class11] of  Pelicula
 
-	  (AnyoContenido 1967)
-	  (CActor
-		  [tvornotv_Class13]
-		  [tvornotv_Class14]
-		  [tvornotv_Class15])
-	  (CDirector [tvornotv_Class12])
-	  (CGenero
-		  [tvornotv_Class10037]
-		  [tvornotv_Class10038])
-	  (CProductor
-		  [tvornotv_Class10030]
-		  [tvornotv_Class10028])
-	  (Duracion 145)
-	  (Idioma "Español")
-	  (Nacionalidad "EEUU")
-	  (Titulo "Los doce del patibulo"))
+	(AnyoContenido 1967)
+	(CActor
+		[tvornotv_Class13]
+		[tvornotv_Class14]
+		[tvornotv_Class15])
+	(CDirector [tvornotv_Class12])
+	(CGenero
+		[tvornotv_Class10037]
+		[tvornotv_Class10038])
+	(CProductor
+		[tvornotv_Class10030]
+		[tvornotv_Class10028])
+	(Duracion 145)
+	(Idioma "castellano")
+	(Nacionalidad "EEUU")
+	(Titulo "Los doce del patibulo"))
 
-  ([tvornotv_Class12] of  Director
+([tvornotv_Class12] of  Director
 
-	  (Nacionalidad "EEUU")
-	  (NombreApellido "Robert Aldrich"))
+	(Nacionalidad "EEUU")
+	(NombreApellido "Robert Aldrich"))
 
-  ([tvornotv_Class13] of  Actor
+([tvornotv_Class13] of  Actor
 
-	  (Nacionalidad "EEUU")
-	  (NombreApellido "Lee Marvin"))
+	(Nacionalidad "EEUU")
+	(NombreApellido "Lee Marvin"))
 
-  ([tvornotv_Class14] of  Actor
+([tvornotv_Class14] of  Actor
 
-	  (Nacionalidad "EEUU")
-	  (NombreApellido "Charles Bronson"))
+	(Nacionalidad "EEUU")
+	(NombreApellido "Charles Bronson"))
 
-  ([tvornotv_Class15] of  Actor
+([tvornotv_Class15] of  Actor
 
-	  (Nacionalidad "EEUU")
-	  (NombreApellido "Donald Sutherland"))
+	(Nacionalidad "EEUU")
+	(NombreApellido "Donald Sutherland"))
 
-  ([tvornotv_Class16] of  Documental
+([tvornotv_Class16] of  Documental
 
-	  (AnyoContenido 1985)
-	  (CDirector [tvornotv_Class17])
-	  (ClasEdades todos-publicos)
-	  (Duracion 60)
-	  (Idioma "Español")
-	  (Nacionalidad "España")
-	  (Tematica Naturaleza)
-	  (Titulo "El lince ibérico"))
+	(AnyoContenido 1985)
+	(CDirector [tvornotv_Class17])
+	(ClasEdades todos-publicos)
+	(Duracion 60)
+	(Idioma "castellano")
+	(Nacionalidad "España")
+	(Tematica Naturaleza)
+	(Titulo "El lince ibérico"))
 
-  ([tvornotv_Class17] of  Director
+([tvornotv_Class17] of  Director
 
-	  (NombreApellido "Felix Rodriguez de la Fuente"))
+	(NombreApellido "Felix Rodriguez de la Fuente"))
 
-  ([tvornotv_Class18] of  Pelicula
+([tvornotv_Class18] of  Pelicula
 
-	  (AnyoContenido 1962)
-	  (CActor [tvornotv_Class23])
-	  (CDirector [tvornotv_Class19])
-	  (CGenero
-		  [tvornotv_Class10037]
-		  [tvornotv_Class10040])
-	  (ClasEdades mayores-13)
-	  (Color_BN TRUE)
-	  (CProductor
-		  [tvornotv_Class10041]
-		  [tvornotv_Class10042])
-	  (Duracion 110)
-	  (Idioma "Ingles")
-	  (Nacionalidad "Inglaterra")
-	  (Titulo "Dr. No"))
+	(AnyoContenido 1962)
+	(CActor [tvornotv_Class23])
+	(CDirector [tvornotv_Class19])
+	(CGenero
+		[tvornotv_Class10037]
+		[tvornotv_Class10040])
+	(ClasEdades mayores-13)
+	(Color_BN TRUE)
+	(CProductor
+		[tvornotv_Class10041]
+		[tvornotv_Class10042])
+	(Duracion 110)
+	(Idioma "ingles")
+	(Nacionalidad "Inglaterra")
+	(Titulo "Dr. No"))
 
-  ([tvornotv_Class19] of  Director
+([tvornotv_Class19] of  Director
 
-	  (NombreApellido "Terence Young"))
+	(NombreApellido "Terence Young"))
 
-  ([tvornotv_Class23] of  Actor
+([tvornotv_Class23] of  Actor
 
-	  (NombreApellido "Sean Connery"))
+	(NombreApellido "Sean Connery"))
 
-  ([tvornotv_Class24] of  Serie
+([tvornotv_Class24] of  Serie
 
-	  (AnyoContenido 2006)
-	  (CActor [tvornotv_Class25])
-	  (Capitulos 77)
-	  (CDirector [tvornotv_Class26])
-	  (ClasEdades mayores-13)
-	  (Duracion 42)
-	  (Idioma "Español")
-	  (Nacionalidad "Estados Unidos")
-	  (Temporadas 4)
-	  (Titulo "Heroes"))
+	(AnyoContenido 2006)
+	(CActor [tvornotv_Class25])
+	(Capitulos 77)
+	(CDirector [tvornotv_Class26])
+	(ClasEdades mayores-13)
+	(Duracion 42)
+	(Idioma "castellano")
+	(Nacionalidad "Estados Unidos")
+	(Temporadas 4)
+	(Titulo "Heroes"))
 
-  ([tvornotv_Class25] of  Actor
+([tvornotv_Class25] of  Actor
 
-	  (NombreApellido "Milo Ventimiglia"))
+	(NombreApellido "Milo Ventimiglia"))
 
-  ([tvornotv_Class26] of  Director
+([tvornotv_Class26] of  Director
 
-	  (NombreApellido "Tim Kring"))
+	(NombreApellido "Tim Kring"))
 
 )

@@ -1,4 +1,4 @@
-; Wed May 25 20:19:58 CEST 2011
+; Wed May 25 21:56:30 CEST 2011
 ; 
 ;+ (version "3.4.5")
 ;+ (build "Build 608")
@@ -12,13 +12,13 @@
 		(allowed-values mayores-7 mayores-13 mayores-18 todos-publicos)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot CDirector
-		(type INSTANCE)
-;+		(allowed-classes Director)
-		(create-accessor read-write))
 	(single-slot ActorFav
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CDirector
+		(type INSTANCE)
+;+		(allowed-classes Director)
 		(create-accessor read-write))
 	(single-slot PorcentajeMujeres
 		(type FLOAT)
@@ -32,12 +32,12 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Titulo
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Capitulos
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Titulo
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Duracion
@@ -67,12 +67,12 @@
 	(multislot Idiomas
 		(type STRING)
 		(create-accessor read-write))
-	(single-slot Edad
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot DirectorFav
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot GeneroDetestado
@@ -80,14 +80,14 @@
 ;+		(allowed-classes Genero)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot CProductor
-		(type INSTANCE)
-;+		(allowed-classes Productor)
-		(create-accessor read-write))
 	(single-slot Tematica
 		(type SYMBOL)
 		(allowed-values Naturaleza Ciencia Actualidad Historia Arte Politica Economia)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CProductor
+		(type INSTANCE)
+;+		(allowed-classes Productor)
 		(create-accessor read-write))
 	(multislot CActor
 		(type INSTANCE)
@@ -126,13 +126,13 @@
 		(allowed-values mayores-7 mayores-13 mayores-18 todos-publicos)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot PorcentajeHombres
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot CDirector
 		(type INSTANCE)
 ;+		(allowed-classes Director)
+		(create-accessor read-write))
+	(single-slot PorcentajeHombres
+		(type FLOAT)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot PorcentajeMujeres
 		(type FLOAT)
@@ -143,12 +143,12 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot AnyoContenido
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Idioma
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot AnyoContenido
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Titulo
@@ -197,13 +197,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Actor)
 		(create-accessor read-write))
-	(multislot CProductor
-		(type INSTANCE)
-;+		(allowed-classes Productor)
-		(create-accessor read-write))
 	(single-slot Capitulos
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CProductor
+		(type INSTANCE)
+;+		(allowed-classes Productor)
 		(create-accessor read-write))
 	(single-slot EnEmision
 		(type SYMBOL)
@@ -258,12 +258,12 @@
 (defclass Usuario
 	(is-a USER)
 	(role concrete)
-	(single-slot Edad
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot DirectorFav
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot ActorFav
