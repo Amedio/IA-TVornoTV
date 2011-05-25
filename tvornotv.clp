@@ -21,27 +21,27 @@
 
 (deffunction pregunta (?pregunta $?valores-permitidos)
 	(progn$ (?var ?valores-permitidos) (lowcase ?var))
-	(format t "Â¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+	(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 	(bind ?respuesta (read))
 	(while (not (member (lowcase ?respuesta) ?valores-permitidos)) do
-		(format t "Â¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+		(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 		(bind ?respuesta (read))
 	)
 	?respuesta
 )
    
 (deffunction pregunta-numerica (?pregunta ?rangini ?rangfi)
-	(format t "Â¿%s? [MAIN::%d, %d] " ?pregunta ?rangini ?rangfi)
+	(format t "¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
 	(bind ?respuesta (read))
 	(while (not(and(> ?respuesta ?rangini)(< ?respuesta ?rangfi))) do
-		(format t "Â¿%s? [MAIN::%d, %d] " ?pregunta ?rangini ?rangfi)
+		(format t "¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
 		(bind ?respuesta (read))
 	)
 	?respuesta
 )
 
 (deffunction pregunta-general (?pregunta)
-	(format t "Â¿%s? " ?pregunta)
+	(format t "¿%s? " ?pregunta)
 	(bind ?respuesta (read))
 	?respuesta
 )
@@ -123,7 +123,7 @@
 (defrule preguntar-actor
   (not (Usuario ActorFav ?))
   ?user <- (object (is-a Usuario))=> 
-    (bind ?actor-pref (pregunta-general "Qual es tu actor preferido")) 
+    (bind ?actor-pref (pregunta-general "Cual es tu actor preferido")) 
     (send ?user put-ActorFav ?actor-pref)
     (assert (Persona ActorFav ok))
 )
@@ -131,7 +131,7 @@
 (defrule preguntar-director
   (not (Usuario DirectorFav ?))
   ?user <- (object (is-a Usuario))=> 
-    (bind ?director-pref (pregunta-general "Qual es tu director preferido")) 
+    (bind ?director-pref (pregunta-general "Cual es tu director preferido")) 
     (send ?user put-DirectorFav ?director-pref)
     (assert (Persona DirectorFav ok))
 )
@@ -159,14 +159,13 @@
 )
 
 (defrule carrega-peliculas
-	?aux <- (send ?recomendacion get-persona)
+	?rec <- (recomendacion (persona ?pers))
 	?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
-	(test (not (eq (member$ ?id (send ?aux get-idiomas)) FALSE)))
-	;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE)) =>
+	(test (not (eq (member$ ?id (send ?pers get-Idiomas)) FALSE)))
+	;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE)) 
 	=>
-	(send ?recomendacion put-programastv ?var)
-	;(slot-insert$ ?recomendacion programastv 1 ?var)
-	;(assert (recomendacion (programastv ?var)))
+	(bind ?aux2 (create$ ?var))
+	(modify ?rec (programastv ?aux2))
 	(assert (Recomendacion programastv ok))
 )
 
