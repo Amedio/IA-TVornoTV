@@ -21,27 +21,27 @@
 
 (deffunction pregunta (?pregunta $?valores-permitidos)
 	(progn$ (?var ?valores-permitidos) (lowcase ?var))
-	(format t "Â¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+	(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 	(bind ?respuesta (read))
-	(while (not (member (lowcase ?respuesta) ?valores-permitidos)) do
-		(format t "Â¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
+	(while (not (member  ?respuesta ?valores-permitidos)) do
+		(format t "¿%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
 		(bind ?respuesta (read))
 	)
 	?respuesta
 )
    
 (deffunction pregunta-numerica (?pregunta ?rangini ?rangfi)
-	(format t "Â¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
+	(format t "¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
 	(bind ?respuesta (read))
 	(while (not(and(> ?respuesta ?rangini)(< ?respuesta ?rangfi))) do
-		(format t "Â¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
+		(format t "¿%s? [%d, %d] " ?pregunta ?rangini ?rangfi)
 		(bind ?respuesta (read))
 	)
 	?respuesta
 )
 
 (deffunction pregunta-general (?pregunta)
-	(format t "Â¿%s? " ?pregunta)
+	(format t "¿%s? " ?pregunta)
 	(bind ?respuesta (read))
 	?respuesta
 )
@@ -113,10 +113,10 @@
 (defrule preguntar-idioma
   (not (Usuario Idiomas ?))
   ?user <- (object (is-a Usuario))=> 
-    (bind ?idioma (pregunta "Que idiomas hablas" castellano catalan frances ingles aleman italiano japones))
+    (bind ?idioma (pregunta "Que idiomas hablas" Castellano Catalan Frances Ingles Aleman Italiano Japones))
     (while (not (eq ?idioma fin)) do
       (slot-insert$ ?user Idiomas 1 ?idioma)
-      (bind ?idioma (pregunta "Que idiomas hablas" castellano catalan frances ingles aleman italiano japones fin))
+      (bind ?idioma (pregunta "Que idiomas hablas" Castellano Catalan Frances Ingles Aleman Italiano Japones fin))
     )
 )
 
@@ -150,6 +150,7 @@
     (focus deduccion)
 )
 
+
 ;;; Modulo de deduccion
 
 (defmodule deduccion "Modulo de deduccion"
@@ -159,21 +160,34 @@
 )
 
 (defrule carrega-peliculas
-	?rec <- (recomendacion (persona ?pers))
-	?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
-	;(test (member$ (str-cat ?id) (send ?pers get-Idiomas)))
-	;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE)) 
-	=>
-	(printout t (send ?var get-Idioma))
-	;(bind ?aux2 (create$ ?var))
-	;(modify ?rec (programastv ?aux2))
-	;(assert (Recomendacion programastv ok))
+       ?rec <- (recomendacion (persona ?pers))
+	
+
+       ;?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
+       ;(test (member$ (str-cat ?id) (send ?pers get-Idiomas)))
+       ;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE))
+
+       =>
+(bind ?id (send ?pers get-Idiomas)) 
+(bind ?var (find-all-instances ((?inst Pelicula)) (not (eq ( member$ ?inst:Idioma ?id) FALSE))  )) 
+	;(bind ?var (find-all-instances ((?inst Pelicula)) (= 1 1)  )) 
+       (printout t ?var)
+       ;(modify ?rec (programastv ?var))
+       ;(assert (recomendacion programastv ok))
+
+)
+;;;Modulo mostrar
+(defmodule mostrar "Imprimir resultado"
+	(import MAIN ?ALL)
+	(import preguntas-generales ?ALL)
+	(import deduccion ?ALL)
+	(export ?ALL)
 )
 
 (defrule escriure
 
-	?aux <- (send ?recomendacion get-persona)=>
-	(printout t "hola")
-	(printout t (send (send ?recomendacion get-persona)  get-programastv))
+	?rec <- (recomendacion (programastv ?progs))=>
+	(printout t ?rec)
+	
 
 )
