@@ -150,8 +150,6 @@
     (focus deduccion)
 )
 
-
-
 ;;; Modulo de deduccion
 
 (defmodule deduccion "Modulo de deduccion"
@@ -161,10 +159,21 @@
 )
 
 (defrule carrega-peliculas
+	?aux <- (send ?recomendacion get-persona)
 	?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
-	?progs <- (recomendacion (programastv ?progstv))
-	;;;(test (> ?edad ?edad-prog))
-	(test (not (eq (member$ ?id ?idiomas) FALSE)))
-	(test (eq (member$ ?genere-det ?genero) FALSE)) =>
-	(insert$ ?progs 1 ?var)
+	(test (not (eq (member$ ?id (send ?aux get-idiomas)) FALSE)))
+	;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE)) =>
+	=>
+	(send ?recomendacion put-programastv ?var)
+	;(slot-insert$ ?recomendacion programastv 1 ?var)
+	;(assert (recomendacion (programastv ?var)))
+	(assert (Recomendacion programastv ok))
+)
+
+(defrule escriure
+
+	?aux <- (send ?recomendacion get-persona)=>
+	(printout t "hola")
+	(printout t (send (send ?recomendacion get-persona)  get-programastv))
+
 )
