@@ -1,4 +1,4 @@
-; Wed May 25 21:56:30 CEST 2011
+; Fri May 27 16:59:14 CEST 2011
 ; 
 ;+ (version "3.4.5")
 ;+ (build "Build 608")
@@ -13,7 +13,7 @@
 	(CGenero
 		[tvornotv_Class10039]
 		[tvornotv_Class10037])
-	(ClasEdades todos-publicos)
+	(ClasEdades 12)
 	(CProductor
 		[tvornotv_Class10027]
 		[tvornotv_Class10028])
@@ -37,7 +37,7 @@
 		[tvornotv_Class10026])
 	(CDirector [tvornotv_Class10019])
 	(CGenero [tvornotv_Class10043])
-	(ClasEdades mayores-18)
+	(ClasEdades 18)
 	(CProductor
 		[tvornotv_Class10022]
 		[tvornotv_Class10023])
@@ -101,7 +101,7 @@
 		[tvornotv_Class10034]
 		[tvornotv_Class10036]
 		[tvornotv_Class10043])
-	(ClasEdades todos-publicos)
+	(ClasEdades 7)
 	(CProductor
 		[tvornotv_Class10044]
 		[tvornotv_Class10046])
@@ -190,7 +190,7 @@
 	(CGenero
 		[tvornotv_Class10039]
 		[tvornotv_Class10053])
-	(ClasEdades todos-publicos)
+	(ClasEdades 0)
 	(Duracion 45)
 	(EnEmision TRUE)
 	(Idioma "ingles")
@@ -229,7 +229,7 @@
 		[tvornotv_Class10039]
 		[tvornotv_Class10059]
 		[tvornotv_Class10060])
-	(ClasEdades mayores-13)
+	(ClasEdades 16)
 	(Duracion 45)
 	(EnEmision TRUE)
 	(Idioma "castellano")
@@ -274,7 +274,7 @@
 		[tvornotv_Class10067]
 		[tvornotv_Class10068])
 	(CDirector [tvornotv_Class10069])
-	(ClasEdades mayores-13)
+	(ClasEdades 13)
 	(CProductor [tvornotv_Class10070])
 	(Duracion 45)
 	(EnEmision TRUE)
@@ -320,7 +320,7 @@
 		[tvornotv_Class10074]
 		[tvornotv_Class10075])
 	(CGenero [tvornotv_Class10072])
-	(ClasEdades mayores-18)
+	(ClasEdades 18)
 	(CProductor [tvornotv_Class10079])
 	(Duracion 60)
 	(EnEmision TRUE)
@@ -375,7 +375,7 @@
 	(CGenero
 		[tvornotv_Class10037]
 		[tvornotv_Class10038])
-	(ClasEdades mayores-18)
+	(ClasEdades 18)
 	(CProductor
 		[tvornotv_Class10081]
 		[tvornotv_Class10082])
@@ -422,6 +422,7 @@
 	(CGenero
 		[tvornotv_Class10037]
 		[tvornotv_Class10038])
+	(ClasEdades 12)
 	(CProductor
 		[tvornotv_Class10030]
 		[tvornotv_Class10028])
@@ -454,7 +455,7 @@
 
 	(AnyoContenido 1985)
 	(CDirector [tvornotv_Class17])
-	(ClasEdades todos-publicos)
+	(ClasEdades 0)
 	(Duracion 60)
 	(Idioma "castellano")
 	(Nacionalidad "España")
@@ -473,7 +474,7 @@
 	(CGenero
 		[tvornotv_Class10037]
 		[tvornotv_Class10040])
-	(ClasEdades mayores-13)
+	(ClasEdades 7)
 	(Color_BN TRUE)
 	(CProductor
 		[tvornotv_Class10041]
@@ -497,7 +498,7 @@
 	(CActor [tvornotv_Class25])
 	(Capitulos 77)
 	(CDirector [tvornotv_Class26])
-	(ClasEdades mayores-13)
+	(ClasEdades 12)
 	(Duracion 42)
 	(Idioma "castellano")
 	(Nacionalidad "Estados Unidos")

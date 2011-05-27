@@ -5,15 +5,18 @@
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
-	(role concrete)
+	(role abstract)
 	(single-slot ClasEdades
-		(type SYMBOL)
-		(allowed-values 7 13 18 0)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot CDirector
 		(type INSTANCE)
 ;+		(allowed-classes Director)
+		(create-accessor read-write))
+	(single-slot ActorFav
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot PorcentajeMujeres
 		(type FLOAT)
@@ -50,8 +53,29 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Sexo
+		(type SYMBOL)
+		(allowed-values hombre mujer)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot NombreApellido
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Idiomas
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot DirectorFav
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot GeneroDetestado
+		(type INSTANCE)
+;+		(allowed-classes Genero)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot CProductor
@@ -83,6 +107,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes Genero)
 		(create-accessor read-write))
+	(single-slot Puntuacion
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot EnEmision
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
@@ -96,8 +124,7 @@
 	(is-a USER)
 	(role concrete)
 	(single-slot ClasEdades
-		(type SYMBOL)
-		(allowed-values mayores-7 mayores-13 mayores-18 todos-publicos)
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot PorcentajeHombres
@@ -123,6 +150,10 @@
 		(create-accessor read-write))
 	(single-slot Idioma
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Puntuacion
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Titulo
@@ -196,7 +227,7 @@
 
 (defclass Persona
 	(is-a USER)
-	(role abstract)
+	(role concrete)
 	(single-slot NombreApellido
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -232,12 +263,12 @@
 (defclass Usuario
 	(is-a USER)
 	(role concrete)
-	(single-slot DirectorFav
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Edad
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot DirectorFav
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot ActorFav
@@ -272,7 +303,7 @@
 	(CGenero
 		[tvornotv_Class10039]
 		[tvornotv_Class10037])
-	(ClasEdades todos-publicos)
+	(ClasEdades 12)
 	(CProductor
 		[tvornotv_Class10027]
 		[tvornotv_Class10028])
@@ -296,7 +327,7 @@
 		[tvornotv_Class10026])
 	(CDirector [tvornotv_Class10019])
 	(CGenero [tvornotv_Class10043])
-	(ClasEdades mayores-18)
+	(ClasEdades 18)
 	(CProductor
 		[tvornotv_Class10022]
 		[tvornotv_Class10023])
@@ -360,7 +391,7 @@
 		[tvornotv_Class10034]
 		[tvornotv_Class10036]
 		[tvornotv_Class10043])
-	(ClasEdades todos-publicos)
+	(ClasEdades 7)
 	(CProductor
 		[tvornotv_Class10044]
 		[tvornotv_Class10046])
@@ -449,7 +480,7 @@
 	(CGenero
 		[tvornotv_Class10039]
 		[tvornotv_Class10053])
-	(ClasEdades todos-publicos)
+	(ClasEdades 0)
 	(Duracion 45)
 	(EnEmision TRUE)
 	(Idioma "ingles")
@@ -488,7 +519,7 @@
 		[tvornotv_Class10039]
 		[tvornotv_Class10059]
 		[tvornotv_Class10060])
-	(ClasEdades mayores-13)
+	(ClasEdades 16)
 	(Duracion 45)
 	(EnEmision TRUE)
 	(Idioma "castellano")
@@ -533,7 +564,7 @@
 		[tvornotv_Class10067]
 		[tvornotv_Class10068])
 	(CDirector [tvornotv_Class10069])
-	(ClasEdades mayores-13)
+	(ClasEdades 13)
 	(CProductor [tvornotv_Class10070])
 	(Duracion 45)
 	(EnEmision TRUE)
@@ -579,7 +610,7 @@
 		[tvornotv_Class10074]
 		[tvornotv_Class10075])
 	(CGenero [tvornotv_Class10072])
-	(ClasEdades mayores-18)
+	(ClasEdades 18)
 	(CProductor [tvornotv_Class10079])
 	(Duracion 60)
 	(EnEmision TRUE)
@@ -634,7 +665,7 @@
 	(CGenero
 		[tvornotv_Class10037]
 		[tvornotv_Class10038])
-	(ClasEdades mayores-18)
+	(ClasEdades 18)
 	(CProductor
 		[tvornotv_Class10081]
 		[tvornotv_Class10082])
@@ -681,6 +712,7 @@
 	(CGenero
 		[tvornotv_Class10037]
 		[tvornotv_Class10038])
+	(ClasEdades 12)
 	(CProductor
 		[tvornotv_Class10030]
 		[tvornotv_Class10028])
@@ -713,7 +745,7 @@
 
 	(AnyoContenido 1985)
 	(CDirector [tvornotv_Class17])
-	(ClasEdades todos-publicos)
+	(ClasEdades 0)
 	(Duracion 60)
 	(Idioma "castellano")
 	(Nacionalidad "España")
@@ -732,7 +764,7 @@
 	(CGenero
 		[tvornotv_Class10037]
 		[tvornotv_Class10040])
-	(ClasEdades mayores-13)
+	(ClasEdades 7)
 	(Color_BN TRUE)
 	(CProductor
 		[tvornotv_Class10041]
@@ -756,7 +788,7 @@
 	(CActor [tvornotv_Class25])
 	(Capitulos 77)
 	(CDirector [tvornotv_Class26])
-	(ClasEdades mayores-13)
+	(ClasEdades 12)
 	(Duracion 42)
 	(Idioma "castellano")
 	(Nacionalidad "Estados Unidos")
