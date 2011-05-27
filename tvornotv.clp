@@ -113,10 +113,10 @@
 (defrule preguntar-idioma
   (not (Usuario Idiomas ?))
   ?user <- (object (is-a Usuario))=> 
-    (bind ?idioma (pregunta "Que idiomas hablas" Castellano Catalan Frances Ingles Aleman Italiano Japones))
+    (bind ?idioma (pregunta "Que idiomas hablas" "castellano" "catalan" "frances" "ingles" "aleman" "italiano" "japones"))
     (while (not (eq ?idioma fin)) do
       (slot-insert$ ?user Idiomas 1 ?idioma)
-      (bind ?idioma (pregunta "Que idiomas hablas" Castellano Catalan Frances Ingles Aleman Italiano Japones fin))
+      (bind ?idioma (pregunta "Que idiomas hablas" "castellano" "catalan" "frances" "ingles" "aleman" "italiano" "japones" fin))
     )
 )
 
@@ -169,10 +169,10 @@
 
        =>
 (bind ?id (send ?pers get-Idiomas)) 
-(bind ?var (find-all-instances ((?inst Pelicula)) (not (eq ( member$ ?inst:Idioma ?id) FALSE))  )) 
-	;(bind ?var (find-all-instances ((?inst Pelicula)) (= 1 1)  )) 
+(bind ?var (find-all-instances ((?inst Pelicula)) (not (eq (  member$ ?inst:Idioma ?id ) FALSE))  )) 
        (printout t ?var)
-       ;(modify ?rec (programastv ?var))
+	(printout t ?id)
+       ;(modify ?rec (programastv ?var)) 
        ;(assert (recomendacion programastv ok))
 
 )
