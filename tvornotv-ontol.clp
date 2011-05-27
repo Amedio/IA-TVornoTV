@@ -1,7 +1,8 @@
-﻿; Fri May 13 18:47:04 CEST 2011
+; Fri May 27 17:52:59 CEST 2011
 ; 
-;+ (version "3.4.5")
-;+ (build "Build 608")
+;+ (version "3.4.4")
+;+ (build "Build 579")
+
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
@@ -10,13 +11,13 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot CDirector
-		(type INSTANCE)
-;+		(allowed-classes Director)
-		(create-accessor read-write))
 	(single-slot ActorFav
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CDirector
+		(type INSTANCE)
+;+		(allowed-classes Director)
 		(create-accessor read-write))
 	(single-slot PorcentajeMujeres
 		(type FLOAT)
@@ -30,12 +31,12 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Titulo
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Capitulos
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Titulo
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Duracion
@@ -65,12 +66,12 @@
 	(multislot Idiomas
 		(type STRING)
 		(create-accessor read-write))
-	(single-slot Edad
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot DirectorFav
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot GeneroDetestado
@@ -78,14 +79,14 @@
 ;+		(allowed-classes Genero)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot CProductor
-		(type INSTANCE)
-;+		(allowed-classes Productor)
-		(create-accessor read-write))
 	(single-slot Tematica
 		(type SYMBOL)
 		(allowed-values Naturaleza Ciencia Actualidad Historia Arte Politica Economia)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CProductor
+		(type INSTANCE)
+;+		(allowed-classes Productor)
 		(create-accessor read-write))
 	(multislot CActor
 		(type INSTANCE)
@@ -127,13 +128,13 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot PorcentajeHombres
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot CDirector
 		(type INSTANCE)
 ;+		(allowed-classes Director)
+		(create-accessor read-write))
+	(single-slot PorcentajeHombres
+		(type FLOAT)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot PorcentajeMujeres
 		(type FLOAT)
@@ -144,12 +145,12 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot AnyoContenido
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Idioma
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot AnyoContenido
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Puntuacion
@@ -202,13 +203,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes Actor)
 		(create-accessor read-write))
-	(multislot CProductor
-		(type INSTANCE)
-;+		(allowed-classes Productor)
-		(create-accessor read-write))
 	(single-slot Capitulos
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot CProductor
+		(type INSTANCE)
+;+		(allowed-classes Productor)
 		(create-accessor read-write))
 	(single-slot EnEmision
 		(type SYMBOL)
@@ -263,12 +264,12 @@
 (defclass Usuario
 	(is-a USER)
 	(role concrete)
-	(single-slot Edad
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot DirectorFav
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edad
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot ActorFav
@@ -293,7 +294,47 @@
 		(create-accessor read-write)))
 
 (definstances tvornotv
-  ([tvornotv_Class10016] of  Pelicula
+([tvornotv_Class0] of  Serie
+
+	(AnyoContenido 2006)
+	(CActor
+		[tvornotv_Class2]
+		[tvornotv_Class3]
+		[tvornotv_Class4])
+	(Capitulos 24)
+	(CDirector [tvornotv_Class5])
+	(CGenero [tvornotv_Class10043])
+	(CProductor [tvornotv_Class6])
+	(Duracion 23)
+	(EnEmision FALSE)
+	(Idioma "ingles")
+	(Nacionalidad "Inglaterra")
+	(Temporadas 4)
+	(Titulo "The IT Crowd"))
+
+([tvornotv_Class10] of  Director
+
+	(NombreApellido "Paul Scheuring"))
+
+([tvornotv_Class10012] of  Actor
+
+	(NombreApellido "Dominic Purcell"))
+
+([tvornotv_Class10013] of  Actor
+
+	(Nacionalidad "Inglaterra")
+	(NombreApellido "Wentworth Miller"))
+
+([tvornotv_Class10014] of  Actor
+
+	(Nacionalidad "Puerto Rico")
+	(NombreApellido "Amaury Nolasco"))
+
+([tvornotv_Class10015] of  Productor
+
+	(NombreApellido "Adelstein-Parouse Productions"))
+
+([tvornotv_Class10016] of  Pelicula
 
 	(AnyoContenido 1973)
 	(CActor
@@ -778,6 +819,226 @@
 
 	(NombreApellido "Terence Young"))
 
+([tvornotv_Class2] of  Actor
+
+	(Nacionalidad "Irlanda")
+	(NombreApellido "Chris O'Dowd"))
+
+([tvornotv_Class20016] of  Productor
+
+	(NombreApellido "20th Century Fox Television"))
+
+([tvornotv_Class20017] of  Serie
+
+	(AnyoContenido 2010)
+	(CActor
+		[tvornotv_Class20020]
+		[tvornotv_Class20021]
+		[tvornotv_Class20022])
+	(Capitulos 19)
+	(CDirector [tvornotv_Class20018])
+	(CGenero
+		[tvornotv_Class20019]
+		[tvornotv_Class10039]
+		[tvornotv_Class10053])
+	(ClasEdades 14)
+	(CProductor [tvornotv_Class20023])
+	(Duracion 60)
+	(EnEmision TRUE)
+	(Idioma "ingles")
+	(Nacionalidad "EEUU")
+	(Temporadas 2)
+	(Titulo "The Walking Dead"))
+
+([tvornotv_Class20018] of  Director
+
+	(Nacionalidad "Francia")
+	(NombreApellido "Frank Darabont"))
+
+([tvornotv_Class20019] of  Genero
+
+	(Nombre "Terror"))
+
+([tvornotv_Class20020] of  Actor
+
+	(Nacionalidad "Inglaterra")
+	(NombreApellido "Andrew Lincoln"))
+
+([tvornotv_Class20021] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Jon Bernthal"))
+
+([tvornotv_Class20022] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Sarah Wayne Callies"))
+
+([tvornotv_Class20023] of  Productor
+
+	(Nacionalidad "Francia")
+	(NombreApellido "Frank Darabont"))
+
+([tvornotv_Class20024] of  Serie
+
+	(AnyoContenido 1994)
+	(CActor
+		[tvornotv_Class20029]
+		[tvornotv_Class20030]
+		[tvornotv_Class20031])
+	(Capitulos 238)
+	(CDirector
+		[tvornotv_Class20025]
+		[tvornotv_Class20027])
+	(CGenero
+		[tvornotv_Class10043]
+		[tvornotv_Class9])
+	(ClasEdades 14)
+	(CProductor
+		[tvornotv_Class20026]
+		[tvornotv_Class20028])
+	(Duracion 22)
+	(Idioma "ingles")
+	(Nacionalidad "EEUU")
+	(Temporadas 10)
+	(Titulo "Friends"))
+
+([tvornotv_Class20025] of  Director
+
+	(Nacionalidad "USA")
+	(NombreApellido "David Crane"))
+
+([tvornotv_Class20026] of  Productor
+
+	(NombreApellido "Marta Kauffman"))
+
+([tvornotv_Class20027] of  Director
+
+	(NombreApellido "Marta Kauffman"))
+
+([tvornotv_Class20028] of  Productor
+
+	(Nacionalidad "USA")
+	(NombreApellido "David Crane"))
+
+([tvornotv_Class20029] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Jennifer Aniston"))
+
+([tvornotv_Class20030] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Courteney Cox"))
+
+([tvornotv_Class20031] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Lisa Kudrow"))
+
+([tvornotv_Class20032] of  Serie
+
+	(AnyoContenido 1989)
+	(CActor
+		[tvornotv_Class20035]
+		[tvornotv_Class20036])
+	(Capitulos 486)
+	(CDirector [tvornotv_Class20033])
+	(CGenero
+		[tvornotv_Class10043]
+		[tvornotv_Class20034])
+	(CProductor [tvornotv_Class20016])
+	(Duracion 22)
+	(EnEmision TRUE)
+	(Idioma "ingles")
+	(Nacionalidad "EEUU")
+	(Temporadas 22)
+	(Titulo "The Simpsons"))
+
+([tvornotv_Class20033] of  Director
+
+	(Nacionalidad "USA")
+	(NombreApellido "Matt Groening"))
+
+([tvornotv_Class20034] of  Genero
+
+	(Nombre "Animacion"))
+
+([tvornotv_Class20035] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Dan Castellaneta"))
+
+([tvornotv_Class20036] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Nancy Cartwright"))
+
+([tvornotv_Class20038] of  Serie
+
+	(AnyoContenido 1999)
+	(CActor
+		[tvornotv_Class20039]
+		[tvornotv_Class20040]
+		[tvornotv_Class20041])
+	(Capitulos 98)
+	(CDirector [tvornotv_Class20033])
+	(CGenero
+		[tvornotv_Class10043]
+		[tvornotv_Class10039]
+		[tvornotv_Class10053]
+		[tvornotv_Class20034])
+	(ClasEdades 14)
+	(CProductor [tvornotv_Class20016])
+	(Duracion 30)
+	(EnEmision TRUE)
+	(Idioma "ingles")
+	(Nacionalidad "EEUU")
+	(Temporadas 6)
+	(Titulo "Futurama"))
+
+([tvornotv_Class20039] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Billy West"))
+
+([tvornotv_Class20040] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "John Di Maggio"))
+
+([tvornotv_Class20041] of  Actor
+
+	(Nacionalidad "USA")
+	(NombreApellido "Katey Sagal"))
+
+([tvornotv_Class20045] of  Documental
+
+	(AnyoContenido 1980)
+	(CDirector [tvornotv_Class20046])
+	(Duracion 60)
+	(Idioma "ingles")
+	(Tematica Ciencia)
+	(Titulo "Cosmos"))
+
+([tvornotv_Class20046] of  Director
+
+	(Nacionalidad "USA")
+	(NombreApellido "Carl Sagan"))
+
+([tvornotv_Class20047] of  Documental
+
+	(AnyoContenido 2007)
+	(CDirector [tvornotv_Class20048])
+	(Duracion 118)
+	(Idioma "ingles")
+	(Tematica Historia)
+	(Titulo "Zeitgeist"))
+
+([tvornotv_Class20048] of  Director
+
+	(NombreApellido "Peter Joseph"))
+
 ([tvornotv_Class23] of  Actor
 
 	(NombreApellido "Sean Connery"))
@@ -803,4 +1064,48 @@
 
 	(NombreApellido "Tim Kring"))
 
+([tvornotv_Class3] of  Actor
+
+	(Nacionalidad "Inglaterra")
+	(NombreApellido "Richard Ayoade"))
+
+([tvornotv_Class4] of  Actor
+
+	(Nacionalidad "Inglaterra")
+	(NombreApellido "Katherine Parkinson"))
+
+([tvornotv_Class5] of  Director
+
+	(NombreApellido "Graham Linehan"))
+
+([tvornotv_Class6] of  Productor
+
+	(NombreApellido "Ash Atalla"))
+
+([tvornotv_Class7] of  Serie
+
+	(AnyoContenido 2005)
+	(CActor
+		[tvornotv_Class10012]
+		[tvornotv_Class10013]
+		[tvornotv_Class10014])
+	(Capitulos 81)
+	(CDirector [tvornotv_Class10])
+	(CGenero
+		[tvornotv_Class10037]
+		[tvornotv_Class10059]
+		[tvornotv_Class10039])
+	(ClasEdades 14)
+	(CProductor
+		[tvornotv_Class10015]
+		[tvornotv_Class20016])
+	(Duracion 42)
+	(Nacionalidad "EEUU")
+	(Temporadas 4)
+	(Titulo "Prison Break"))
+
+([tvornotv_Class9] of  Genero
+
+	(Nombre "Romance"))
+	
 )
