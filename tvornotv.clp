@@ -159,22 +159,30 @@
 	(export ?ALL)
 )
 
+
 (defrule carrega-peliculas
   ?rec <- (recomendacion (persona ?pers) (programastv $?progs))
-  ;?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
-  ;(test (member$ (str-cat ?id) (send ?pers get-Idiomas)))
-  ;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE))
   =>
     ;(printout t (length$ ?progs) crlf)
-    (if (eq (length$ ?progs) 0) then
-      (bind ?id (send ?pers get-Idiomas)) 
-      (bind ?var (find-all-instances ((?inst Pelicula)) (not (eq (  member$ ?inst:Idioma ?id ) FALSE))  )) 
-      ;(printout t ?var)
-      ;(printout t ?id)
-      (modify ?rec (programastv ?var)) 
+   (if (eq (length$ ?progs) 0) then
+      (bind ?id (send ?pers get-Idiomas))
+	(bind ?gen (send ?pers get-GeneroDetestado))
+	(bind ?edad (send ?pers get-Edad))
+	 
+      (bind ?var (find-all-instances ((?inst Pelicula)) (and(not (eq (  member$ ?inst:Idioma ?id ) FALSE))  (eq ( member$ ?gen ?inst:CGenero ) FALSE)(< ?inst:ClasEdades ?edad) ) ))
+(bind ?var2 (find-all-instances ((?inst2 Serie)) (and (not (eq (  member$ ?inst2:Idioma ?id ) FALSE)) (eq ( member$ ?gen ?inst2:CGenero ) FALSE) (< ?inst2:ClasEdades ?edad) ) ))
+(bind ?var (insert$ ?var 1 ?var2))
+(bind ?var3 (find-all-instances ((?inst2 Documental)) (and (not (eq (  member$ ?inst2:Idioma ?id ) FALSE)) (< ?inst2:ClasEdades ?edad) ) ))
+(bind ?var (insert$ ?var 1 ?var3))
+      (printout t ?var crlf)	
+      (printout t ?id crlf)
+	(printout t (length$ ?var) crlf)
+	(printout t (length$ ?var2) crlf)
+      (modify ?rec (programastv ?var))
       ;(assert (recomendacion programastv ok))
     )
 )
+
 
 ;;;Modulo mostrar
 (defmodule mostrar "Imprimir resultado"
