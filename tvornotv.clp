@@ -160,22 +160,22 @@
 )
 
 (defrule carrega-peliculas
-       ?rec <- (recomendacion (persona ?pers))
-	
-
-       ;?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
-       ;(test (member$ (str-cat ?id) (send ?pers get-Idiomas)))
-       ;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE))
-
-       =>
-(bind ?id (send ?pers get-Idiomas)) 
-(bind ?var (find-all-instances ((?inst Pelicula)) (not (eq (  member$ ?inst:Idioma ?id ) FALSE))  )) 
-       (printout t ?var)
-	(printout t ?id)
-       ;(modify ?rec (programastv ?var)) 
-       ;(assert (recomendacion programastv ok))
-
+  ?rec <- (recomendacion (persona ?pers) (programastv $?progs))
+  ;?var <- (object (is-a Pelicula) (Idioma ?id) (ClasEdades ?edad-prog) (CGenero ?genero))
+  ;(test (member$ (str-cat ?id) (send ?pers get-Idiomas)))
+  ;(test (eq (member$ (send ?aux get-GeneroDetestado) ?genero) FALSE))
+  =>
+    ;(printout t (length$ ?progs) crlf)
+    (if (eq (length$ ?progs) 0) then
+      (bind ?id (send ?pers get-Idiomas)) 
+      (bind ?var (find-all-instances ((?inst Pelicula)) (not (eq (  member$ ?inst:Idioma ?id ) FALSE))  )) 
+      ;(printout t ?var)
+      ;(printout t ?id)
+      (modify ?rec (programastv ?var)) 
+      ;(assert (recomendacion programastv ok))
+    )
 )
+
 ;;;Modulo mostrar
 (defmodule mostrar "Imprimir resultado"
 	(import MAIN ?ALL)

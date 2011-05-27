@@ -8,7 +8,7 @@
 	(role concrete)
 	(single-slot ClasEdades
 		(type SYMBOL)
-		(allowed-values mayores-7 mayores-13 mayores-18 todos-publicos)
+		(allowed-values 7 13 18 0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot CDirector
