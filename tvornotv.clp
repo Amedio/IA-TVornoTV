@@ -174,8 +174,6 @@
 (bind ?var (insert$ ?var 1 ?var2))
 (bind ?var3 (find-all-instances ((?inst2 Documental)) (and (not (eq (  member$ ?inst2:Idioma ?id ) FALSE)) (< ?inst2:ClasEdades ?edad) ) ))
 (bind ?var (insert$ ?var 1 ?var3))
-      (printout t ?var crlf)	
-      (printout t ?id crlf)
 	(printout t (length$ ?var) crlf)
 	(printout t (length$ ?var2) crlf)
       (modify ?rec (programastv ?var))
@@ -183,19 +181,54 @@
     )
 )
 
+(defrule puntuacion-ini
+	?rec <- (recomendacion (persona ?pers) (programastv $?progs))
+	=>
+	(bind ?i 1)
+	(while (<= ?i (length$ $progs)) do 
+
+		(if (and (< (send ?pers get-Edad) (+ (send(nth$ ?i  ?progs) get-ClasEdades) 5) )  ( > (send ?pers get-Edad) (- (send(nth$ ?i  ?progs) get-ClasEdades) 5) ) ) then
+
+			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
+			(send (nth$ ?i ?progs) put-Puntuacion ?aux)
+   			 (assert (ProgramaTv Puntuacion ok))
+		) 
+		(if (and (eq (str-compare(send ?pers get-Sexe) hombre)0 ) (> (send(nth$ ?i ?progs ) get-PorcentajeHombres) 0.5 ) )  then
+
+			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
+			(send (nth$ ?i ?progs) put-Puntuacion ?aux)
+   			 (assert (ProgramaTv Puntuacion ok))
+		)
+		(if (and (eq (str-compare(send ?pers get-Sexe) mujer) 0 ) (> (send(nth$ ?i ?progs ) get-PorcentajeMujeres) 0.5 ) ) then
+
+			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
+			(send(nth$ ?i ?progs) put-Puntuacion ?aux)
+   			 (assert (ProgramaTv Puntuacion ok))
+		)
+		
+		(if (eq  (member$ (send ?pers get-ActorFav) () ) FALSE)
+
+		)
+
+		(bind ?i (+ ?i 1))
+	)
+)
+
+
 
 ;;;Modulo mostrar
-(defmodule mostrar "Imprimir resultado"
-	(import MAIN ?ALL)
-	(import preguntas-generales ?ALL)
-	(import deduccion ?ALL)
-	(export ?ALL)
-)
-
-(defrule escriure
-
-	?rec <- (recomendacion (programastv ?progs))=>
-	(printout t ?rec)
-	
-
-)
+;(defmodule mostrar "Imprimir resultado"
+;	(import MAIN ?ALL)
+;	(import preguntas-generales ?ALL)
+;	(import deduccion ?ALL)
+;	(export ?ALL)
+;)
+;
+;(defrule escriure
+;
+;	?rec <- (recomendacion (programastv ?progs))=>
+;	(printout t ?rec)
+;	
+;
+;)
+;
