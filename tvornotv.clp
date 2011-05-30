@@ -90,7 +90,7 @@
 		(bind ?edad (pregunta-numerica "Que edad tienes" 0 150))
 		(bind ?user (make-instance usuario of Usuario))
 		(send ?user put-Edad ?edad)
-		(assert (recomendacion (persona ?user)))
+		(assert (recomendacion (persona ?user) (final? FALSE)))
 		(assert (Usuario Edad ok))
 )
 
@@ -182,7 +182,7 @@
 )
 
 (defrule puntuacion-ini
-	?rec <- (recomendacion (persona ?pers) (programastv $?progs))
+	?rec <- (recomendacion (persona ?pers) (programastv $?progs) (final? FALSE))
 	=>
 	(bind ?i 1)
 	(while (<= ?i (length$ $progs)) do 
@@ -193,42 +193,85 @@
 			(send (nth$ ?i ?progs) put-Puntuacion ?aux)
    			 (assert (ProgramaTv Puntuacion ok))
 		) 
-		(if (and (eq (str-compare(send ?pers get-Sexe) hombre)0 ) (> (send(nth$ ?i ?progs ) get-PorcentajeHombres) 0.5 ) )  then
+		(if (and (eq (str-compare(send ?pers get-Sexo) hombre) 0 ) (> (send(nth$ ?i ?progs ) get-PorcentajeHombres) 0.5 ) )  then
 
 			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
 			(send (nth$ ?i ?progs) put-Puntuacion ?aux)
    			 (assert (ProgramaTv Puntuacion ok))
 		)
-		(if (and (eq (str-compare(send ?pers get-Sexe) mujer) 0 ) (> (send(nth$ ?i ?progs ) get-PorcentajeMujeres) 0.5 ) ) then
+		(if (and (eq (str-compare(send ?pers get-Sexo) mujer) 0 ) (> (send(nth$ ?i ?progs ) get-PorcentajeMujeres) 0.5 ) ) then
 
 			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
 			(send(nth$ ?i ?progs) put-Puntuacion ?aux)
    			 (assert (ProgramaTv Puntuacion ok))
 		)
-		
-		(if (eq  (member$ (send ?pers get-ActorFav) () ) FALSE)
-
+    
+		(if (or (eq (class (nth$ ?i ?progs)) Serie) (eq (class (nth$ ?i ?progs)) Pelicula)) then
+			(bind ?actores (create$ ))
+			(bind ?actoresAux (send (nth$ ?i ?progs) get-CActor))
+			(loop-for-count (?j 1 (length$ ?actoresAux)) do
+				(bind ?aux (nth$ ?j ?actoresAux))
+				(bind ?act-nombre (send ?aux get-NombreApellido))
+				(bind ?actores (create$ ?actores ?act-nombre))
+			)
+			;(printout t ?actores crlf)
+			(if (not (eq  (member$ (send ?pers get-ActorFav) ?actores ) FALSE)) then
+				(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
+				(send(nth$ ?i ?progs) put-Puntuacion ?aux)
+				(assert (ProgramaTv Puntuacion ok))
+			)
 		)
 
+		(bind ?directores (create$ ))
+		(bind ?directoresAux (send (nth$ ?i ?progs) get-CDirector))
+		(loop-for-count (?j 1 (length$ ?directoresAux)) do
+			(bind ?aux (nth$ ?j ?directoresAux))
+			(bind ?dir-nombre (send ?aux get-NombreApellido))
+			(bind ?directores (create$ ?directores ?dir-nombre))
+		)
+		;(printout t ?directores crlf)
+		(if (not (eq  (member$ (send ?pers get-DirectorFav) ?directores ) FALSE)) then
+			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
+			(send(nth$ ?i ?progs) put-Puntuacion ?aux)
+			(assert (ProgramaTv Puntuacion ok))
+		)
+		
 		(bind ?i (+ ?i 1))
 	)
+	
+	(bind ?new-progs (create$ ))
+	(loop-for-count (?j 1 (length$ ?progs)) do
+		
+		(bind ?inserted 0)
+		(loop-for-count (?z 1 (length$ ?new-progs)) do
+				(if (and (eq ?inserted 0) (<= (send (nth$ ?j ?progs) get-Puntuacion) (send (nth$ ?z ?new-progs) get-Puntuacion))) then
+					(bind ?new-progs (insert$ ?new-progs ?z (nth$ ?j ?progs)))
+					(bind ?inserted 1)
+				)
+		)
+		(if (eq ?inserted 0) then
+			(bind ?new-progs (insert$ ?new-progs (+ (length$ ?new-progs) 1) (nth$ ?j ?progs)))
+			(printout t "insertado" crlf)
+		)
+	)
+	
+    (modify ?rec (programastv ?new-progs))
+	(modify ?rec (final? TRUE))
+	(focus mostrar)
 )
 
 
 
 ;;;Modulo mostrar
-;(defmodule mostrar "Imprimir resultado"
-;	(import MAIN ?ALL)
-;	(import preguntas-generales ?ALL)
-;	(import deduccion ?ALL)
-;	(export ?ALL)
-;)
-;
-;(defrule escriure
-;
-;	?rec <- (recomendacion (programastv ?progs))=>
-;	(printout t ?rec)
-;	
-;
-;)
-;
+(defmodule mostrar "Imprimir resultado"
+	(import MAIN ?ALL)
+	(import preguntas-generales ?ALL)
+	(import deduccion ?ALL)
+	(export ?ALL)
+)
+
+(defrule escriure
+
+	?rec <- (recomendacion (programastv ?progs))=>
+	(printout t ?rec)
+)
