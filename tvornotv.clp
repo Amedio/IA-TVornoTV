@@ -12,6 +12,7 @@
 	(slot persona)
 	(multislot programastv)
 	(slot final?)
+	(slot preferit)
 )
 
 
@@ -171,22 +172,19 @@
 	 
       (bind ?var (find-all-instances ((?inst Pelicula)) (and(not (eq (  member$ ?inst:Idioma ?id ) FALSE))  (eq ( member$ ?gen ?inst:CGenero ) FALSE)(< ?inst:ClasEdades ?edad) ) ))
 (bind ?var2 (find-all-instances ((?inst2 Serie)) (and (not (eq (  member$ ?inst2:Idioma ?id ) FALSE)) (eq ( member$ ?gen ?inst2:CGenero ) FALSE) (< ?inst2:ClasEdades ?edad) ) ))
-(bind ?var (insert$ ?var 1 ?var2))
-(bind ?var3 (find-all-instances ((?inst2 Documental)) (and (not (eq (  member$ ?inst2:Idioma ?id ) FALSE)) (< ?inst2:ClasEdades ?edad) ) ))
-(bind ?var (insert$ ?var 1 ?var3))
-	(printout t (length$ ?var) crlf)
-	(printout t (length$ ?var2) crlf)
-      (modify ?rec (programastv ?var))
-      ;(assert (recomendacion programastv ok))
+	(bind ?var (insert$ ?var 1 ?var2))
+	(bind ?var3 (find-all-instances ((?inst2 Documental)) (and (not (eq (  member$ ?inst2:Idioma ?id ) FALSE)) (< ?inst2:ClasEdades ?edad) ) ))
+	(bind ?var (insert$ ?var 1 ?var3))
+     	 (modify ?rec (programastv ?var))
     )
 )
 
 (defrule puntuacion-ini
-	?rec <- (recomendacion (persona ?pers) (programastv $?progs) (final? FALSE))
+	?rec <- (recomendacion (persona ?pers) (programastv $?progs) (final? FALSE) )
+	(not (send ?rec get-preferit))
 	=>
 	(bind ?i 1)
 	(while (<= ?i (length$ $progs)) do 
-
 		(if (and (< (send ?pers get-Edad) (+ (send(nth$ ?i  ?progs) get-ClasEdades) 5) )  ( > (send ?pers get-Edad) (- (send(nth$ ?i  ?progs) get-ClasEdades) 5) ) ) then
 
 			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
@@ -214,7 +212,6 @@
 				(bind ?act-nombre (send ?aux get-NombreApellido))
 				(bind ?actores (create$ ?actores ?act-nombre))
 			)
-			;(printout t ?actores crlf)
 			(if (not (eq  (member$ (send ?pers get-ActorFav) ?actores ) FALSE)) then
 				(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
 				(send(nth$ ?i ?progs) put-Puntuacion ?aux)
@@ -229,7 +226,6 @@
 			(bind ?dir-nombre (send ?aux get-NombreApellido))
 			(bind ?directores (create$ ?directores ?dir-nombre))
 		)
-		;(printout t ?directores crlf)
 		(if (not (eq  (member$ (send ?pers get-DirectorFav) ?directores ) FALSE)) then
 			(bind ?aux(+ (send (nth$ ?i ?progs) get-Puntuacion) 1))
 			(send(nth$ ?i ?progs) put-Puntuacion ?aux)
@@ -239,25 +235,92 @@
 		(bind ?i (+ ?i 1))
 	)
 	
-	(bind ?new-progs (create$ ))
-	(loop-for-count (?j 1 (length$ ?progs)) do
-		
-		(bind ?inserted 0)
-		(loop-for-count (?z 1 (length$ ?new-progs)) do
-				(if (and (eq ?inserted 0) (<= (send (nth$ ?j ?progs) get-Puntuacion) (send (nth$ ?z ?new-progs) get-Puntuacion))) then
-					(bind ?new-progs (insert$ ?new-progs ?z (nth$ ?j ?progs)))
-					(bind ?inserted 1)
-				)
-		)
-		(if (eq ?inserted 0) then
-			(bind ?new-progs (insert$ ?new-progs (+ (length$ ?new-progs) 1) (nth$ ?j ?progs)))
-			(printout t "insertado" crlf)
-		)
-	)
 	
-    (modify ?rec (programastv ?new-progs))
+	
+    ;(modify ?rec (programastv ?new-progs))
 	(modify ?rec (final? TRUE))
 	(focus mostrar)
+)
+
+
+(defrule puntuacion-rec
+	?rec <- (recomendacion (persona ?pers) (programastv $?progs) (final? FALSE) )
+	(send ?rec get-preferit)
+	=>
+	(printout t "debug recurs" crlf)
+	(bind ?preferit (send ?rec get-preferit))
+	(bind ?i 1)
+	(bind ?actorsP(create$ )) 	
+	(bind ?productorsP(create$ ))
+	(bind ?generoP(create$ )) 
+	(bind ?anyoP (send ?preferit get-Anyo))
+	(bind ?directorP (send ?preferit get-CDirector))
+
+	;; Recuperamos la información propia de los Series y Peliculas
+	(if (not(eq (class ?preferit) Documental)) then 
+		;; Recuperamos la lista de Actores preferidos
+		(bind ?actorsP(send (nth$ ?i ?progs) get-CActor))
+		
+		;; Recuperamos la lista de Productores preferidos 
+		(bind ?productorsP (send (nth$ ?i ?progs) get-CProductor))
+		
+		;; Recuperamos la lista de Generos preferidos
+		(bind ?generoP(send (nth$ ?i ?progs) get-CGenero))
+
+	;; Recuperamos la información propia de los Documentales
+	else 
+		(bind ?generoP(send (nth$ ?i ?progs) get-Tematica))
+	)
+
+	;;Iteramos para todos los programas
+	(while (<= ?i (length$ $progs)) do   
+		(bind ?prog (nth$ ?i ?progs))
+		
+
+		;; Puntuacion especifica de Series y Peliculas (si ?preferit no era de este tipo su información sera nula y no se iterara en ninguno de los bucles)
+		(if (not(eq (class ?prog) Serie)) then
+			
+			;;Tractem Actors
+			(bind ?actorsB (send ?prog get-CActor))
+			(loop-for-count (?j 1 (length$ ?actorsP)) do
+				(bind ?aux (nth$ ?j ?actorsP))
+				(if (not (eq  (member$ ?aux ?actorsB) FALSE))then
+					(bind ?aux(+ (send (nth$ ?i ?prog) get-Puntuacion) 1))
+					(send ?prog put-Puntuacion ?aux)
+					(assert (ProgramaTv Puntuacion ok))
+				)
+			)
+
+			;;Tractem Productors
+			(bind ?productorsB (send ?prog get-CProductor))
+			(loop-for-count (?j 1 (length$ ?productorsP)) do
+				(bind ?aux (nth$ ?j ?productorsP))
+				(if (not (eq  (member$ ?aux ?productorsB) FALSE))then
+					(bind ?aux(+ (send (nth$ ?i ?prog) get-Puntuacion) 1))
+					(send ?prog put-Puntuacion ?aux)
+					(assert (ProgramaTv Puntuacion ok))
+				)
+			)
+			;;Tractem Genero (no queremos que haya muchas veces el mismo genero repetido)
+			(bind ?generosB (send ?prog get-CProductor))
+			(loop-for-count (?j 1 (length$ ?generoP)) do
+				(bind ?aux (nth$ ?j ?generoP))
+				(if (not (eq  (member$ ?aux ?generosB) FALSE)) then
+					(bind ?aux (send  ?prog get-Puntuacion))
+					(if (> ?aux 0) then
+						(bind ?aux(+ ?aux 1))
+						(send(nth$ ?i ?prog) put-Puntuacion ?aux)
+						(assert (ProgramaTv Puntuacion ok))
+					)
+				)
+			)
+
+		)
+		
+		
+
+		(bind ?i (+ ?i 1))
+	)
 )
 
 
@@ -270,8 +333,99 @@
 	(export ?ALL)
 )
 
-(defrule escriure
+(defrule escriure "Escriu els resultats"
 
-	?rec <- (recomendacion (programastv ?progs))=>
-	(printout t ?rec)
+	?rec <- (recomendacion (programastv $?progs) (final? TRUE))=>
+	(printout t "Recomendaciones:" crlf)
+	(printout t " " crlf)
+	
+	(bind ?new-progs (create$ ))
+	(loop-for-count (?j 1 (length$ ?progs)) do	
+		(bind ?inserted 0)
+		(loop-for-count (?z 1 (length$ ?new-progs)) do
+			(if (and (eq ?inserted 0) (<= (send (nth$ ?j ?progs) get-Puntuacion) (send (nth$ ?z ?new-progs) get-Puntuacion))) then
+				(bind ?new-progs (insert$ ?new-progs ?z (nth$ ?j ?progs)))
+				(bind ?inserted 1)
+			)
+		)
+		(if (eq ?inserted 0) then
+			(bind ?new-progs (insert$ ?new-progs (+ (length$ ?new-progs) 1) (nth$ ?j ?progs)))
+			(printout t "insertado" crlf)
+		)
+	)
+
+	(bind ?i 1)
+	(while (<= ?i 6) do 
+		(bind ?aux (nth$ ?i ?new-progs))
+		(printout t "=======" ?i "========" crlf) 
+		(printout t " "crlf)
+		(if  (eq (class ?aux) Documental) then
+			(printout "Documental" crlf)
+			(printout "Titulo:" (send ?aux get-Titulo) crlf)
+			(printout "Tematica:" (send ?aux get-Tematica) crlf)
+		else
+			(bind ?actores(create$ ))
+			;(bind ?directoresAux (send (nth$ ?i ?progs) get-CActor))
+			(bind ?directoresAux (send ?aux get-CActor))
+			(loop-for-count (?j 1 (length$ ?directoresAux)) do
+				(bind ?aux (nth$ ?j ?directoresAux))
+				(bind ?nombre (send ?aux get-NombreApellido))
+				(bind ?actores (create$ ?actores ?nombre))
+			)	
+			;(bind ?productores(create$ ))
+			;(bind ?directoresAux (send ?aux get-CProductor))
+			;(bind ?directoresAux (send (nth$ ?i ?progs) get-CProductor))
+			;(loop-for-count (?j 1 (length$ ?directoresAux)) do
+			;	(bind ?aux (nth$ ?j ?directoresAux))
+			;	(bind ?nombre (send ?aux get-NombreApellido))
+			;	(bind ?productores(create$ ?productores ?nombre))
+			;)
+		)	
+		(if (eq (class ?aux) Serie)then
+			(printout "Serie" crlf)
+			(if (eq(send ?aux get-EnEmision) TRUE) then
+				(printout "Actualmente en emision" crlf)			
+			)
+			(printout "Titulo:" (send ?aux get-Titulo) crlf)
+			(printout "Temporadas:" (send ?aux get-Temporadas) "   ")
+			(printout "Genero:" (send ?aux get-CGenero) crlf)
+			(printout "Capitulos:" (send ?aux get-Capitulos) crlf)
+			(printout "Actores:"  ?actores crlf)
+			;(printout "Productores:" ?productores crlf)
+		)
+		(if(eq (class ?aux) Pelicula) then
+			(printout "Pelicula" crlf)
+			(printout "Genero:" (send ?aux get-CGenero) crlf)
+			(printout "Actores:"  ?actores crlf)
+			;(printout "Productores:" ?productores crlf)
+		)
+		
+
+		(bind ?directores (create$ ))
+		(bind ?directoresAux (send (nth$ ?i ?progs) get-CDirector))
+		(loop-for-count (?j 1 (length$ ?directoresAux)) do
+			(bind ?aux (nth$ ?j ?directoresAux))
+			(bind ?nombre (send ?aux get-NombreApellido))
+			(bind ?directores (create$ ?directores ?nombre))
+		)
+		(printout t "Directores: " ?directores crlf)
+		(printout t "Idioma: " (send ?aux get-Idioma) crlf)
+		(printout t "Anyo: " (send ?aux get-AnyoContenido) crlf)
+
+		(printout t " "crlf)
+		(printout t " "crlf)
+		(printout t " "crlf)
+		(bind ?i (+ ?i 1))
+		(bind ?num(pregunta-numerica "Que programa prefieres" 1 5)) 
+		(bind ?aux (nth$ ?num ?new-progs))
+		(assert (recomendacion (preferit ?aux)))
+		(bind ?num (si-o-no-p "Desea actualizar las recomendaciones?") )
+		(if (eq ?num TRUE)then
+			(modify ?rec (final? FALSE))
+			(focus deduccion)
+		else ;;¿como se pone fin?
+		)
+		
+	)
 )
+
