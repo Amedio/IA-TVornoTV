@@ -408,9 +408,11 @@
 			(bind ?nombre (send ?aux get-NombreApellido))
 			(bind ?directores (create$ ?directores ?nombre))
 		)
+		(bind ?idioma-final (send ?aux get-Idioma))
+		(bind ?anyocontenido-final (send ?aux get-AnyoContenido))
 		(printout t "Directores: " ?directores crlf)
-		(printout t "Idioma: " (send ?aux get-Idioma) crlf)
-		(printout t "Anyo: " (send ?aux get-AnyoContenido) crlf)
+		(printout t "Idioma: " ?idioma-final crlf)
+		(printout t "Anyo: " ?anyocontenido-final crlf)
 
 		(printout t " "crlf)
 		(printout t " "crlf)
