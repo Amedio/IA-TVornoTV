@@ -164,7 +164,6 @@
 (defrule carrega-peliculas
   ?rec <- (recomendacion (persona ?pers) (programastv $?progs))
   =>
-    ;(printout t (length$ ?progs) crlf)
    (if (eq (length$ ?progs) 0) then
       (bind ?id (send ?pers get-Idiomas))
 	(bind ?gen (send ?pers get-GeneroDetestado))
@@ -232,9 +231,6 @@
 	
 	)
 	
-	
-	
-    ;(modify ?rec (programastv ?new-progs))
 	(modify ?rec (final? TRUE))
 	(focus mostrar)
 )
@@ -244,7 +240,6 @@
 	?rec <- (recomendacion (persona ?pers) (programastv $?progs) (final? FALSE) )
 	(send ?rec get-preferit)
 	=>
-	(printout t "debug recurs" crlf)
 	(bind ?preferit (send ?rec get-preferit))
 	(bind ?i 1)
 	(bind ?actorsP(create$ )) 	
@@ -340,14 +335,13 @@
 	(loop-for-count (?j 1 (length$ ?progs)) do	
 		(bind ?inserted 0)
 		(loop-for-count (?z 1 (length$ ?new-progs)) do
-			(if (and (eq ?inserted 0) (<= (send (nth$ ?j ?progs) get-Puntuacion) (send (nth$ ?z ?new-progs) get-Puntuacion))) then
+			(if (and (eq ?inserted 0) (>= (send (nth$ ?j ?progs) get-Puntuacion) (send (nth$ ?z ?new-progs) get-Puntuacion))) then
 				(bind ?new-progs (insert$ ?new-progs ?z (nth$ ?j ?progs)))
 				(bind ?inserted 1)
 			)
 		)
 		(if (eq ?inserted 0) then
 			(bind ?new-progs (insert$ ?new-progs (+ (length$ ?new-progs) 1) (nth$ ?j ?progs)))
-			(printout t "insertado" crlf)
 		)
 	)
 
